@@ -84,7 +84,7 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
-    store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
+    # store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
     timeframe_relationship = db.relationship('TimeframeModel', back_populates="category_relationship",cascade="all, delete")
