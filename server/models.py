@@ -50,7 +50,7 @@ class User(db.Model):
             )
         return email
 
-    # usersession_id=db.Column(db.Integer,db.ForeignKey('user_sessions.id'))
+    usersession_id=db.Column(db.Integer,db.ForeignKey('user_sessions.id'))
     user_session_relationship = db.relationship('UserSession', back_populates="user_relationship",cascade="all, delete")
 
 class UserSession(db.Model, SerializerMixin):
@@ -63,7 +63,9 @@ class UserSession(db.Model, SerializerMixin):
     user_id=db.Column(db.Integer)
 
     user_relationship = db.relationship('User', back_populates="user_session_relationship")
-    serialize_rules = ('-user_relationship',)
+    timeframemodel_relationship = db.relationship('TimeframeModel', back_populates="user_session_relationship",cascade="all, delete")
+
+    serialize_rules = ('-user_relationship','-timeframemodel_relationship',)
 
 
 class TimeframeModel(db.Model):
@@ -74,24 +76,28 @@ class TimeframeModel(db.Model):
     sales_amount = db.Column(db.Float, nullable=False)
     sales_units = db.Column(db.Integer, nullable=False)
 
-    usersession_id = db.Column(db.Integer)
+    usersession_id = db.Column(db.Integer, db.ForeignKey('user_sessions.id'))
 
-    user_session_relationship = db.relationship('UserSession', back_populates="TimeframeModel_relationship",cascade="all, delete")
+    user_session_relationship = db.relationship('UserSession', back_populates="timeframemodel_relationship",cascade="all, delete")
+    sales_relationship = db.relationship('Sales', back_populates="timeframemodel_relationship",cascade="all, delete")
+    # category_relationship = db.relationship('Category', back_populates="timeframemodel_relationship", cascade="all, delete")
     serialize_rules = ('-user_session_relationship',)
 
 class Category(db.Model):
     __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
+
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
-    # store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
-    timeframe_relationship = db.relationship('TimeframeModel', back_populates="category_relationship",cascade="all, delete")
     product_relationship = db.relationship('Product', back_populates="category_relationship",cascade="all, delete")
-    store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
+    # store_relationship = db.relationship('Store', back_populates="sales_relationship",foreign_keys=[store_id],cascade="all, delete")
+    # store_relationship = db.relationship('Store', back_populates="category_relationship", foreign_keys=[store_id], cascade="all, delete")
+    store_relationship = db.relationship('Store', back_populates="categories", foreign_keys=[store_id], cascade="all, delete")
+    sales_relationship = db.relationship('Sales', back_populates="category_relationship",cascade="all, delete")
 
-    serialize_rules = ('-timeframe_relationship','-product_relationship','-store_relationship',)
+    serialize_rules = ('-product_relationship','-store_relationship','-sales_relationship',)
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -128,23 +134,30 @@ class Store(db.Model, SerializerMixin):
     market = db.Column(db.String(255), nullable=False)
 
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
-    category_relationship = db.relationship('Category', back_populates="store_relationship", cascade="all, delete")
 
-    serialize_rules = ('-category_relationship',)
+    # category_relationship = db.relationship('Category', back_populates="sales_relationship", cascade="all, delete")
+    # category_relationship = db.relationship('Category', back_populates="store_relationship", cascade="all, delete")
+    # category_relationship = db.relationship('Category', back_populates="store_relationship", foreign_keys=[category_id], cascade="all, delete")
+    categories = db.relationship('Category', back_populates="store_relationship", foreign_keys=[category_id], cascade="all, delete", uselist=True)
+    sales_relationship = db.relationship('Sales', back_populates="store_relationship",cascade="all, delete")
+
+    serialize_rules = ('-category_relationship','-sales_relationship',)
 
 class Sales(db.Model, SerializerMixin):
     __tablename__ = 'sales'
     id = db.Column(db.Integer, primary_key=True)
     sale_amount = db.Column(db.Float, nullable=False)
     sale_units = db.Column(db.Integer, nullable=False)
-
+   
+    timeframemodel_id = db.Column(db.Integer, db.ForeignKey('timeframes.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'), nullable=False)
 
+    timeframemodel_relationship = db.relationship('TimeframeModel', back_populates="sales_relationship", cascade="all, delete")
     category_relationship = db.relationship('Category', back_populates="sales_relationship", cascade="all, delete")
     store_relationship = db.relationship('Store', back_populates="sales_relationship", cascade="all, delete")
 
-    serialize_rules = ('-category_relationship','-store_relationship',)
+    serialize_rules = ('-category_relationship','-store_relationship','-timeframemodel_relationship')
 
 
 
