@@ -40,38 +40,30 @@ class User(db.Model):
     def __repr__(self):
         return f"<User {self.username}>"
     
-    # @validates("email")
-    # def validate_email(self, key, email):
-    #     if "@" not in email:
-    #         raise ValueError("Email invalid")
-    #     if len(email) > 40:
-    #         raise ValueError(
-    #             "Email must be less than 40 characters long"
-    #         )
-    #     return email
+    @validates("email")
+    def validate_email(self, key, email):
+        if "@" not in email:
+            raise ValueError("Email invalid")
+        if len(email) > 40:
+            raise ValueError(
+                "Email must be less than 40 characters long"
+            )
+        return email
 
-    usersession_id=db.Column(db.Integer,db.ForeignKey('user_sessions.id'))
+    # usersession_id=db.Column(db.Integer,db.ForeignKey('user_sessions.id'))
+    user_session_relationship = db.relationship('UserSession', back_populates="user_relationship",cascade="all, delete")
 
-    # product_relationship = db.relationship('Product', back_populates="user_relationship", cascade="all, delete")
-    # payment_relationship = db.relationship('User_Payment', back_populates="user_relationship", cascade="all, delete")
-    # cart_relationship = db.relationship('Cart_Item', back_populates="user_relationship",cascade="all, delete")
-    # shopping_session_relationship = db.relationship('Shopping_Session', back_populates="user_relationship",cascade="all, delete")
-
-    # serialize_rules = ('-product_relationship','-payment_relationship','-cart_relationship','-shopping_session_relationship',)
-
-
-class UserSession(db.Model):
+class UserSession(db.Model, SerializerMixin):
     __tablename__ ='user_sessions'
 
     id = db.Column(db.Integer, primary_key=True)
-    # session_token = db.Column(db.String(255), unique=True, nullable=False)
     login_time = db.Column(db.String, nullable=False)
     logout_time = db.Column(db.String, nullable=False)
 
     user_id=db.Column(db.Integer)
 
-    # user_relationship = db.relationship('User', back_populates="UserSession_relationship")
-    # serialize_rules = ('-user_relationship',)
+    user_relationship = db.relationship('User', back_populates="user_session_relationship")
+    serialize_rules = ('-user_relationship',)
 
 
 class TimeframeModel(db.Model):
@@ -84,18 +76,22 @@ class TimeframeModel(db.Model):
 
     usersession_id = db.Column(db.Integer)
 
-    # user_relationship = db.relationship('User', back_populates="UserSession_relationship")
-    # serialize_rules = ('-user_relationship',)
+    user_session_relationship = db.relationship('UserSession', back_populates="TimeframeModel_relationship",cascade="all, delete")
+    serialize_rules = ('-user_session_relationship',)
 
 class Category(db.Model):
     __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
+    store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
 
-    # user_relationship = db.relationship('User', back_populates="UserSession_relationship")
-    # serialize_rules = ('-user_relationship',)
+    timeframe_relationship = db.relationship('TimeframeModel', back_populates="category_relationship",cascade="all, delete")
+    product_relationship = db.relationship('Product', back_populates="category_relationship",cascade="all, delete")
+    store_relationship = db.relationship('Store', back_populates="category_relationship",cascade="all, delete")
+
+    serialize_rules = ('-timeframe_relationship','-product_relationship','-store_relationship',)
 
 class Product(db.Model):
     __tablename__ = 'products'
@@ -110,25 +106,17 @@ class Product(db.Model):
     price = db.Column(db.Float)
     status = db.Column(db.Boolean, default=False, index=True)
     image = db.Column(db.String)
+    category_id = db.Column(db.Integer)
 
-    category_id=db.Column(db.Integer,db.ForeignKey('categories.id'))
+    category_relationship = db.relationship('Category', back_populates="product_relationship", cascade="all, delete")
 
-    # user_relationship = db.relationship('User', back_populates="product_relationship", cascade="all, delete")
-    # cart_relationship = db.relationship('Cart_Item', back_populates="product_relationship")
-
-    # serialize_rules = ('-user_relationship','-cart_relationship',)
-
-    # @validates("price")
-    # def validates_price(self,key,price):
-    #     if not price and 0 <= price:
-    #         raise ValueError("Price must exist as a positive number")
-    #     return price
-
-    # product_category_id = db.Column(db.Integer)
-    # category_relationship = db.relationship('Category', back_populates="product_relationship", cascade="all, delete")
-    # cart_relationship = db.relationship('Cart_Item', back_populates="product_relationship",cascade="all, delete")
+    @validates("price")
+    def validates_price(self,key,price):
+        if not price and 0 <= price:
+            raise ValueError("Price must exist as a positive number")
+        return price
     
-class Store(db.Model):
+class Store(db.Model, SerializerMixin):
     __tablename__ = 'stores'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=True, nullable=False)
@@ -138,19 +126,25 @@ class Store(db.Model):
     state = db.Column(db.String(255), nullable=False)
     zipcode = db.Column(db.String(255), nullable=False)
     market = db.Column(db.String(255), nullable=False)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
-class Sales(db.Model):
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
+    category_relationship = db.relationship('Category', back_populates="store_relationship", cascade="all, delete")
+
+    serialize_rules = ('-category_relationship',)
+
+class Sales(db.Model, SerializerMixin):
     __tablename__ = 'sales'
     id = db.Column(db.Integer, primary_key=True)
-    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
-    store_id = db.Column(db.Integer, db.ForeignKey('stores.id'), nullable=False)
     sale_amount = db.Column(db.Float, nullable=False)
     sale_units = db.Column(db.Integer, nullable=False)
 
+    category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
+    store_id = db.Column(db.Integer, db.ForeignKey('stores.id'), nullable=False)
 
-    # category = db.relationship('Category', back_populates='sales')
-    # store = db.relationship('Store', back_populates='sales')
+    category_relationship = db.relationship('Category', back_populates="sales_relationship", cascade="all, delete")
+    store_relationship = db.relationship('Store', back_populates="sales_relationship", cascade="all, delete")
+
+    serialize_rules = ('-category_relationship','-store_relationship',)
 
 
 
