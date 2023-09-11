@@ -8,7 +8,8 @@ from faker import Faker
 
 # Local imports
 from app import app
-from models import db, User, UserSession, TimeframeModel, Category, Product, Store, Sales 
+from models import db, User, TimeframeModel, Category, Product, Store, Sales 
+# from models import db
 
 def create_database():
  with app.app_context():
@@ -30,18 +31,18 @@ def create_users():
         users.append(u)
     return users
 
-def create_user_sessions():
-    user_sessions = []
-    for _ in range(50):
-        user_sessions.append(
-            UserSession(
-                # session_token = fake.session_token,
-                login_time = fake.date_time_between("-1week", "now"),
-                logout_time= fake.date_time_between("now", "now"),
-                user_id = randint(1, 50),
-            )
-        )
-    return user_sessions
+# def create_user_sessions():
+#     user_sessions = []
+#     for _ in range(50):
+#         user_sessions.append(
+#             UserSession(
+#                 # session_token = fake.session_token,
+#                 login_time = fake.date_time_between("-1week", "now"),
+#                 logout_time= fake.date_time_between("now", "now"),
+#                 user_id = randint(1, 50),
+#             )
+#         )
+#     return user_sessions
 
 def create_timeframes():
     timeframes = []
@@ -51,7 +52,6 @@ def create_timeframes():
                 timeframe = fake.month_name(),
                 sales_amount = randint(10000, 100000),
                 sales_units = randint(200, 2000),
-                usersession_id = randint(1, 50),
             )
         )
     return timeframes
@@ -62,8 +62,8 @@ def create_categories():
         categories.append(
             Category(
                 name = fake.text(max_nb_chars = 20),
-                store_id = randint(1, 50),
-                product_id = randint(1, 50),
+                # store_id = randint(1, 50),
+                # product_id = randint(1, 50),
             )
         )
     return categories
@@ -100,7 +100,7 @@ def create_stores():
                 state = fake.state(),
                 zipcode = fake.zipcode(),
                 market = fake.text(max_nb_chars = 20),
-                category_id = randint(1, 50),
+                # category_id = randint(1, 50),
             )
         )
     return stores
@@ -112,20 +112,23 @@ def create_sales():
             Sales(
                 sale_amount = randint(10000, 100000),
                 sale_units = randint(200, 2000),
-                category_id = randint(1, 50),
-                store_id = randint(1, 50),   
+                user_id= randint(1, 50),
+                timeframemodel_id = randint(1, 50)
+                # category_id = randint(1, 50),
+                # store_id = randint(1, 50),   
             )
         )
     return sales
 
 if __name__ == '__main__':
+    # create_database()
     fake = Faker()
     with app.app_context():
         print("Starting seed...")
         # create_database()
         print("Clearing database...")
         User.query.delete()
-        UserSession.query.delete()
+        # UserSession.query.delete()
         TimeframeModel.query.delete()
         Category.query.delete()
         Product.query.delete()
@@ -137,10 +140,10 @@ if __name__ == '__main__':
         db.session.add_all(users)
         db.session.commit()
 
-        print("Creating user sessions...")
-        user_sessions = create_user_sessions()
-        db.session.add_all(user_sessions)
-        db.session.commit()
+        # print("Creating user sessions...")
+        # user_sessions = create_user_sessions()
+        # db.session.add_all(user_sessions)
+        # db.session.commit()
 
         print("Creating timeframes...")
         timeframes = create_timeframes()

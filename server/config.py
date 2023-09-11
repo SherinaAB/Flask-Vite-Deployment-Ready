@@ -1,4 +1,5 @@
 # Standard library imports
+import os
 
 # Remote library imports
 from flask import Flask
@@ -8,7 +9,6 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flask_bcrypt import Bcrypt
-import os
 import secrets
 from dotenv import load_dotenv
 load_dotenv()
