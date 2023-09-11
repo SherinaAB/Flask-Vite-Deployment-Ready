@@ -19,6 +19,7 @@ class Users(Resource):
     def get(self):
         users = [u.to_dict() for u in User.query.all()]
         return make_response(users, 200)
+    
     def post(self):
 
         fields = request.get_json()
@@ -30,8 +31,10 @@ class Users(Resource):
             password_hash = fields['password']
             approved_user = fields['approved_user']
             img = fields['img']
+            usersession_id = fields['usersession_id']
             if approved_user == 'true':
-                new_user = User(first_name=first_name, last_name=last_name, email=email, username=username, password_hash=password_hash, approved_user=approved_user, img=img)
+                new_user = User(first_name=first_name, last_name=last_name, email=email, username=username, password_hash=password_hash, approved_user=approved_user, img=img, usersession_id=usersession_id)
+                
                 db.session.add(new_user)
                 db.session.commit()
                 session['user_id'] = new_user.id
@@ -372,7 +375,7 @@ class Stores(Resource):
         except ValueError:
             return make_response({'error': 'validation error'}, 422)
         
-class storesById(Resource):
+class StoresById(Resource):
     def get(self, id):
         stores = Store.query.filter_by(id=id).first()
   
@@ -485,7 +488,7 @@ api.add_resource(CategoriesById, '/categories/<int:id>')
 api.add_resource(Products, '/products')
 api.add_resource(productsById, '/products/<int:id>')
 api.add_resource(Stores, '/stores')
-api.add_resource(storesById, '/stores/<int:id>')
+api.add_resource(StoresById, '/stores/<int:id>')
 api.add_resource(Sales, '/sales')
 api.add_resource(salesById, '/sales/<int:id>')
 
