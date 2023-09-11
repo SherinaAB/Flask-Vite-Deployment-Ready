@@ -25,11 +25,16 @@ class User(db.Model):
     approved_user = db.Column(db.Boolean, default=False, index=True)
     img = db.Column(db.String, nullable=True)
 
+    # sales_id = db.Column(db.Integer, db.ForeignKey('sales.id'),nullable=False)
+    # sales = db.relationship('Sales', back_populates='user', cascade='all, delete')
     sales = db.relationship('Sales', back_populates='user', cascade='all, delete')
 # ========================== monday, 9/11/23 test =======================
     # usersession_id = db.Column(db.Integer, db.ForeignKey('user_sessions.id'))
     # user_session_relationship = db.relationship('UserSession', back_populates="user_relationship", cascade="all, delete")
 # ========================== monday, 9/11/23 test =======================
+    # user_session_relationship = db.relationship('UserSession', back_populates="user", cascade="all, delete")
+    # user_session_relationship = db.relationship('UserSession', back_populates="user")
+    
     @hybrid_property
     def password_hash(self):
         return self._password_hash
@@ -65,9 +70,9 @@ class UserSession(db.Model, SerializerMixin):
     login_time = db.Column(db.String, nullable=False)
     logout_time = db.Column(db.String, nullable=False)
 
-    # ======user_id=db.Column(db.Integer, db.ForeignKey('user.id'))======
-## ========================== monday, 9/11/23 test =======================
-    # user_relationship = db.relationship('User', back_populates="user_session_relationship")
+#     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+# ## ========================== monday, 9/11/23 test =======================
+#     user = db.relationship('User', back_populates="user_session_relationship")
     # timeframemodel = db.relationship('TimeframeModel', back_populates="user_session_relationship",cascade="all, delete") 
     # # ====== comment out, per Stephen's example =======
 
@@ -102,7 +107,7 @@ class Sales(db.Model):
     sale_amount = db.Column(db.Float, nullable=False)
     sale_units = db.Column(db.Integer, nullable=False)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     timeframemodel_id = db.Column(db.Integer, db.ForeignKey('timeframes.id'), nullable=False)
 
     user = db.relationship('User', back_populates='sales', cascade='all, delete')
@@ -110,8 +115,8 @@ class Sales(db.Model):
     categories = db.relationship('Category', secondary='sales_categories', back_populates='sales', cascade='all, delete')
     stores = db.relationship('Store', secondary='sales_stores', back_populates='sales', cascade='all, delete')
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # Define the foreign key to User and relationship to User
-    user = db.relationship('User', back_populates='sales', cascade='all, delete')
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # Define the foreign key to User and relationship to User
+    # user = db.relationship('User', back_populates='sales', cascade='all, delete')
 
 
 # ========================== monday, 9/11/23 test =======================
@@ -166,6 +171,12 @@ sales_stores = db.Table('sales_stores',
     db.Column('sales_id', db.Integer, db.ForeignKey('sales.id'), primary_key=True),
     db.Column('store_id', db.Integer, db.ForeignKey('stores.id'), primary_key=True)
 )
+
+# user_sales = db.Table('user_sales',
+#     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
+#     db.Column('sales_id',db.Integer, db.ForeignKey('sales.id'), primary_key=True)
+# )
+
 # class Category(db.Model):
 #     __tablename__ = 'categories'
 #     id = db.Column(db.Integer, primary_key=True)
