@@ -113,9 +113,9 @@ def create_sales():
                 sale_amount = randint(10000, 100000),
                 sale_units = randint(200, 2000),
                 user_id= randint(1, 50),
-                timeframemodel_id = randint(1, 50)
-                # category_id = randint(1, 50),
-                # store_id = randint(1, 50),   
+                timeframemodel_id = randint(1, 50),
+                category_id = randint(1, 50),
+                store_id = randint(1, 50),  
             )
         )
     return sales
