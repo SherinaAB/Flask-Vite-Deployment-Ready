@@ -1,5 +1,7 @@
-export const Register = () => {
-    return(
-        <>Register</>
+function Register() {
+    return (
+        <div>Register & Create New Login</div>
     )
 }
+
+export default Register;

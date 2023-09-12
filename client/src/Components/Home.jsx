@@ -1,7 +1,7 @@
 import React from "react";
-import Products from "./Products";
+// import Products from "./Products";
 
-function Home({products, handleEdit, history}) {
+function Home({}) {
   return (
     <>
     {/* this is for a hero page and need to adjust the colors */}
@@ -21,7 +21,7 @@ function Home({products, handleEdit, history}) {
         </div>
       </div>
 
-        <Products products={products} handleEdit = {handleEdit} history = {history}/>
+        {/* <Products products={products} handleEdit = {handleEdit} history = {history}/> */}
         {/* ============================ ADD MINI SAMPLE DASHBOARDS ON HOME PAGE ========================= */}
     </>
   );

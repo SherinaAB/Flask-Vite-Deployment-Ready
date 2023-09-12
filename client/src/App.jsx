@@ -1,9 +1,10 @@
 import { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
-import Login from './components/Login';
-import Register from './components/Register';
-
+import Login from './components/postman/Login'
+import Register from './components/postman/Register'
+import About from './components/postman/About'
+import Comment from './components/postman/Comment'
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
   //if not user, they will see
   if(!user){
     return (
-    <>
+    // <> SHERINA'S PHASE-5 PROJECT</>
     <Router>
     <NavBar />
     <Switch>
@@ -57,7 +58,6 @@ function App() {
 
         </Switch>
     </Router>
-    </>
     )
   }
   
@@ -65,13 +65,13 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
+        {/* <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
         <div className='Customize the best data driven storytelling dasboards for your next business review!'>
           <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
         </div>
-        <header className='navbar'>
+        <header className='navbar'>  */}
         <NavBar />
-        </header>
+        {/* </header> */}
         <Switch>
 
         {/*   HOME (LANDING) PAGE:  CHANGE TO LANDING PAGE W/ USER SIGN-ON OR CREATE USER W/ SAMPLE OF "CREATE YOUR OWN PREFERRED DASHBOARD VIEWS" */}
@@ -79,30 +79,30 @@ function App() {
             <Home products={products} handleEdit = {handleEdit}/>
           </Route>
 
-        {/*   WELCOME (TIMEFRAME) PAGE:  CHANGE TO SELECT MONTH TO VIEW/CREATE DASHBOARDS" */}
+          {/* WELCOME (TIMEFRAME) PAGE:  CHANGE TO SELECT MONTH TO VIEW/CREATE DASHBOARDS"
           <Route exact path="/welcome">
             <Welcome/>
           </Route>
 
         {/*   DASHBOARD LANDING PAGE (with filters (cats, prods, & stores)):  CHANGE TO DASHBOARD LANDING PAGE */}
-          <Route exact path="/dashboardLanding">
+          {/* <Route exact path="/dashboardLanding">
             <DashboardLanding/>
-          </Route>
+          </Route> */}
 
         {/*   PROFILE PREFERRED VIEWS PAGE:  CHANGE TO SAVED USER PROFILE PREFERRED VIEWS PAGE ===== SAVE TO PROFILE OPTION =====  */}
-          <Route exact path="/preferredView">
+          {/* <Route exact path="/preferredView">
             <PreferredView/>
-          </Route>
+          </Route> */}
 
         {/*   COMMENTS PAGE:  CHAT, COMMENT, AND COMMUNICATE PAGE  */}
-        <Route exact path="/comments">
+        {/* <Route exact path="/comments">
             <Comments/>
-          </Route>
+          </Route> */}
 
         {/*   ABOUT PAGE:  DEFINE WHAT DASHBOARDS ARE, THEIR PURPOSE, USAGE, ANALYSIS AND IMPORTANCE OF STORYTELLING W/ SAMPLE*/}
-          <Route exact path="/about">
+          {/* <Route exact path="/about">
             <About/>
-          </Route>
+          </Route> */}
 
         </Switch>
       </div>
