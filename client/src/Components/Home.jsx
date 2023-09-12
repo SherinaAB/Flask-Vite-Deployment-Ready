@@ -8,7 +8,7 @@ function Home({products, handleEdit, history}) {
       <div className="hero min-h-screen">
         {/* bg-base-200 for above to make background different color */}
         <div className="hero-content flex-col lg:flex-row">
-          <img src="assets/PaperStyle.jpg" alt="Image by <a href="https://www.freepik.com/free-vector/paper-style-monochromatic-smooth-background_14670104.htm">Freepik</a>"
+          <img src="assets/PaperStyle.jpg" alt="Image by <a href="https://www.freepik.com/free-vector/paper-style-monochromatic-smooth-background_14670104.htm"> Freepik </a>
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div>

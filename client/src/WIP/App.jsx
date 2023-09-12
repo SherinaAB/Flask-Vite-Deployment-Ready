@@ -1,11 +1,36 @@
 import { useState,useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import {BrowserRouter as Router, Switch, Routes, Route, useHistory} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
-
+// import NavBar from './components/NavBar';
+// import Home from './components/Home';
+// import About from './components/About';
 
 function App() {
+  // //products state & fetch
+  // const [products, setProducts] = useState([])
+  // const [productId, setProductId] = useState()
+  // const history = useHistory()
+
+  // const updateProduct = (newProducts) => setProducts(products => products.map(product => product.id === newProducts.id? newProducts : product))
+  // console.log(updateProduct)
+
+  // function handleEdit(product, history){
+  //   console.log(product)
+  //   setProductId(product)
+    
+  // }
+  // useEffect(() => {
+  //   fetch('/api/products')
+  //   .then(res => res.json())
+  //   .then(data => setProducts(data))
+  // }, [])
+
+  // function addNewProduct(newProduct){
+  //   setProducts([...products, newProduct])
+  // }
 
   //user state & fetch
   const [user, setUser] = useState(null)
@@ -38,9 +63,7 @@ function App() {
     <NavBar />
     <Switch>
           <Route exact path="/">
-            <Home 
-            // products={products} history = {history} handleEdit={handleEdit}
-            />
+            <Home products={products} history = {history} handleEdit={handleEdit}/>
           </Route>
           <Route exact path="/login">
             <Login updateUser={updateUser}/>
@@ -48,13 +71,12 @@ function App() {
           <Route exact path="/register">
             <Register newUser={newUser}/>
           </Route>
-          <Route exact path="/comment">
-            <Comment/>
-          </Route>          
           <Route exact path="/about">
             <About/>
           </Route>
-
+          <Route exact path="/comment">
+            <Comment/>
+          </Route>
         </Switch>
     </Router>
     </>
@@ -64,14 +86,8 @@ function App() {
   // if logged in, USER will see
   return (
     <Router>
-      <div className="container">
-        <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
-        <div className='Customize the best data driven storytelling dasboards for your next business review!'>
-          <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
-        </div>
-        <header className='navbar'>
-        <NavBar />
-        </header>
+      <NavBar />
+
         <Switch>
 
         {/*   HOME (LANDING) PAGE:  CHANGE TO LANDING PAGE W/ USER SIGN-ON OR CREATE USER W/ SAMPLE OF "CREATE YOUR OWN PREFERRED DASHBOARD VIEWS" */}
@@ -105,9 +121,43 @@ function App() {
           </Route>
 
         </Switch>
-      </div>
     </Router>
   )
 }
 
 export default App
+
+
+
+// import AddNewItem from './components/pages/AddNewItem'
+// import UpdateProduct from './components/pages/UpdateProducts'
+
+  //products state & fetch
+  // const [products, setProducts] = useState([])
+  // const [productId, setProductId] = useState()
+  // const history = useHistory()
+
+  // const updateProduct = (newProducts) => setProducts(products => products.map(product => product.id === newProducts.id? newProducts : product))
+  // console.log(updateProduct)
+
+  // function handleEdit(product, history){
+  //   console.log(product)
+  //   setProductId(product)
+    
+  // }
+  // useEffect(() => {
+  //   fetch('/api/products')
+  //   .then(res => res.json())
+  //   .then(data => setProducts(data))
+  // }, [])
+
+  // function addNewProduct(newProduct){
+  //   setProducts([...products, newProduct])
+  // }
+          // <Route exact path="/addnewitem">
+          //   <AddNewItem addNewProduct={addNewProduct}/>
+          // </Route>
+
+          // <Route exact path="/updateproduct/edit/:id">
+          //   <UpdateProduct updateProduct = {updateProduct} productId={productId}/>
+          // </Route>
