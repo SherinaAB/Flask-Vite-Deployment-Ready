@@ -1,9 +1,9 @@
 import React, { useEffect, useState} from 'react'
-import NewComment from './NewComment'
-import NewStory from './NewStory'
+// import NewComment from './NewComment'
+// import NewStory from './NewStory'
 
-export default 
-function About({item}) {
+
+function Comment({item}) {
     const [newComment,setNewComment] = useState([])
     const [newStory, setNewStory] = useState([])
 
@@ -30,3 +30,5 @@ function About({item}) {
     </div>
   )
 }
+
+export default Comment
