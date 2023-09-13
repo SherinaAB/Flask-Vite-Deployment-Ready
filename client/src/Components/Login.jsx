@@ -24,7 +24,7 @@ function Login({updateUser}) {
 
   function handleSubmit(e){
       e.preventDefault()
-      fetch(signup?"/api/users":"/api/login", {
+      fetch(signup?"/api/login":"/api/users", {
           method: "POST",
           headers: {"Content-Type": "application/json"},
               body: JSON.stringify({username: username, password: password})
@@ -51,7 +51,7 @@ function Login({updateUser}) {
 
 return (
   <>
-    <div className="">
+    <div id="LoginForm">
       <div className="">
         <h2 className="">
           Sign-in to your account

@@ -29,28 +29,29 @@ class Users(Resource):
         fields = request.get_json()
 
         try:
-            first_name = fields['first_name']
-            last_name = fields['last_name']
-            email = fields['email']
+            # first_name = fields['firstname']
+            # last_name = fields['lastname']
+            # email = fields['email']
             username = fields['username']
             password_hash = fields['password']
-            approved_user = fields['approved_user']
-            img = fields['img']
+            # approved_user = fields['approved_user']
+            # img = fields['img']
 
-            if approved_user == True:
-                new_user = User(
-                    first_name=first_name, 
-                    last_name=last_name, 
-                    email=email, 
-                    username=username, 
-                    password_hash=password_hash, 
-                    approved_user=approved_user, 
-                    img=img)
-                
-                db.session.add(new_user)
-                db.session.commit()
-                session['user_id'] = new_user.id
-                return make_response(new_user.to_dict(), 201)
+            # if approved_user == True:
+            new_user = User(
+                # first_name=first_name, 
+                # last_name=last_name, 
+                # email=email, 
+                username=username, 
+                password_hash=password_hash, 
+                # approved_user=approved_user, 
+                # img=img
+            )
+            
+            db.session.add(new_user)
+            db.session.commit()
+            session['user_id'] = new_user.id
+            return make_response(new_user.to_dict(), 201)
         except ValueError:
             return make_response({'error': 'Must be authorized to create an account'}, 422)
             

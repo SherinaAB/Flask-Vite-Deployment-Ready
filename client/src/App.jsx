@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navigation from './components/Navigation';
+import Home from './components/Home';
 import Login from './components/Login';
+import DashboardLanding from './components/DashboardLanding';
 import About from './components/About';
 import Comment from './components/Comment';
 
@@ -14,9 +16,9 @@ function App() {
 
   //user state & fetch
   const [user, setUser] = useState(null)
-  // function updateUser(new_user){
-  //   setUser(new_user)
-  // }
+  function updateUser(new_user){
+    setUser(new_user)
+  }
 
   function fetchUsers(){
     fetch('/api/check_session')
@@ -44,14 +46,24 @@ function App() {
         <Navigation />
       </div>
     <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Home 
             // products={products} history = {history} handleEdit={handleEdit}
             />
-          </Route> */}
-          <Route exact path="/login">
-            <Login />
           </Route>
+
+          {/* <Route exact path="/login">
+            <Login />
+          </Route> */}
+
+          <Route exact path="/login">
+            <Login updateUser={updateUser}/>
+          </Route>
+
+          <Route exact path="/dashboardlanding">
+            <DashboardLanding />
+          </Route>
+
           {/* <Route exact path="/login">
             <Login updateUser={updateUser}/>
           </Route> */}
@@ -74,28 +86,28 @@ function App() {
   }
   
   // if logged in, USER will see
-  // return (
-  //   <Router>
-  //     <div className="container">
-  //       <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
-  //       <div className='Customize the best data driven storytelling dasboards for your next business review!'>
-  //         <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
-  //       </div>
-  //       <header className='navbar'>
-  //       <Navigation />
-  //       </header>
-  //       <Switch>
+  return (
+    <Router>
+      <div className="container">
+        <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
+        <div className='Customize the best data driven storytelling dasboards for your next business review!'>
+          <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
+        </div>
+        <header className='navbar'>
+        <Navigation />
+        </header>
+        <Switch>
 
-  //         <Route exact path="/">
-  //           <Home 
+          <Route exact path="/">
+            <Home 
             // products={products} handleEdit = {handleEdit}
-          //   />
-          // </Route>
+            />
+          </Route>
 
 
-          // <Route exact path="/login">
+          {/* // <Route exact path="/login">
           //   <Login/>
-          // </Route>
+          // </Route> */}
 
 
           {/* <Route exact path="/dashboardLanding">
@@ -108,19 +120,19 @@ function App() {
           </Route> */}
 
 
-  //         <Route exact path="/comments">
-  //           <Comment/>
-  //         </Route>
+          <Route exact path="/comments">
+            <Comment/>
+          </Route>
 
 
-  //         <Route exact path="/about">
-  //           <About/>
-  //         </Route>
+          <Route exact path="/about">
+            <About/>
+          </Route>
 
-  //       </Switch>
-  //     </div>
-  //   </Router>
-  // )
+        </Switch>
+      </div>
+    </Router>
+  )
 }
 
 export default App     

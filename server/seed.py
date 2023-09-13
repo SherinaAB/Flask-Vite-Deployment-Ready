@@ -62,6 +62,7 @@ def create_timeframes():
     'December',
     ]
     for month in months:
+        print(month)
         timeframes.append(
             TimeframeModel(
                 timeframe = month,
@@ -137,14 +138,15 @@ def create_sales():
 
 def create_sales_per_month(timeframes):
     sales = []
-    for timeframe in timeframes:
+    for time in timeframes:
+        print(time)
         for _ in range(5):
             sales.append(
                 Sales(
                     sale_amount = randint(10000, 100000),
                     sale_units = randint(200, 2000),
                     user_id= randint(1, 50),
-                    timeframemodel_id = timeframe.id,
+                    timeframemodel_id = time.id,
                     category_id = randint(1, 50),
                     store_id = randint(1, 50),  
                 )
