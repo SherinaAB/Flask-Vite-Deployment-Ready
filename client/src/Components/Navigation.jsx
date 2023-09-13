@@ -12,7 +12,7 @@ function Navigation() {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">PERFORMANCE DASHBOARDS</Navbar.Brand>
+        <Navbar.Brand href="#home">CREATE/ANALYZE YOUR DYNAMIC DATA PERFORMANCE DASHBOARDS FOR YOUR BUSINESS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

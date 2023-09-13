@@ -88,10 +88,11 @@ function App() {
   // if logged in, USER will see
   return (
     <Router>
-      <div className="container">
-        <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
+      <div id="container">
+        {/* <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/> */}
         <div className='Customize the best data driven storytelling dasboards for your next business review!'>
-          <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
+          <h1>PERFORMANCE DASHBOARDS </h1>
+          <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
         </div>
         <header className='navbar'>
         <Navigation />

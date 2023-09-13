@@ -6,4 +6,4 @@ function PreferredView() {
   )
 }
 
-export default Comment
+export default PreferredView;
