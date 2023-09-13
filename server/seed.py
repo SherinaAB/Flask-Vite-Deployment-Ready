@@ -46,10 +46,25 @@ def create_users():
 
 def create_timeframes():
     timeframes = []
-    for _ in range(50):
+    
+    months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+    ]
+    for month in months:
         timeframes.append(
             TimeframeModel(
-                timeframe = fake.month_name(),
+                timeframe = month,
                 sales_amount = randint(10000, 100000),
                 sales_units = randint(200, 2000),
             )
@@ -120,6 +135,36 @@ def create_sales():
         )
     return sales
 
+def create_sales_per_month(timeframes):
+    sales = []
+    for timeframe in timeframes:
+        for _ in range(5):
+            sales.append(
+                Sales(
+                    sale_amount = randint(10000, 100000),
+                    sale_units = randint(200, 2000),
+                    user_id= randint(1, 50),
+                    timeframemodel_id = timeframe.id,
+                    category_id = randint(1, 50),
+                    store_id = randint(1, 50),  
+                )
+            )
+        return sales
+
+# def create_sales_for_march():
+#     sales = []
+#     for _ in range(5):
+#         sales.append(
+#             Sales(
+#                 sale_amount = randint(10000, 100000),
+#                 sale_units = randint(200, 2000),
+#                 user_id= randint(1, 50),
+#                 timeframemodel_id = 2,
+#                 category_id = randint(1, 50),
+#                 store_id = randint(1, 50),  
+#             )
+#         )
+#     return sales
 if __name__ == '__main__':
     # create_database()
     fake = Faker()
@@ -166,7 +211,7 @@ if __name__ == '__main__':
         db.session.commit()
 
         print("Creating sales...")
-        sales = create_sales()
+        sales = create_sales_per_month(timeframes)
         db.session.add_all(sales)
         db.session.commit()
 

@@ -40,7 +40,9 @@ function App() {
     return (
     // <> SHERINA'S PHASE-5 PROJECT</>
     <Router>
-    <Navigation />
+      <div id="NavBar">
+        <Navigation />
+      </div>
     <Switch>
           {/* <Route exact path="/">
             <Home 
@@ -53,9 +55,9 @@ function App() {
           {/* <Route exact path="/login">
             <Login updateUser={updateUser}/>
           </Route> */}
-          <Route exact path="/register">
+          {/* <Route exact path="/register">
             <Register/>
-          </Route>
+          </Route> */}
           {/* <Route exact path="/register">
             <Register newUser={newUser}/>
           </Route> */}
@@ -72,28 +74,28 @@ function App() {
   }
   
   // if logged in, USER will see
-  return (
-    <Router>
-      <div className="container">
-        <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
-        <div className='Customize the best data driven storytelling dasboards for your next business review!'>
-          <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
-        </div>
-        <header className='navbar'>
-        <Navigation />
-        </header>
-        <Switch>
+  // return (
+  //   <Router>
+  //     <div className="container">
+  //       <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/>
+  //       <div className='Customize the best data driven storytelling dasboards for your next business review!'>
+  //         <h1>PERFORMANCE DASHBOARDS by Sherina Buenaseda</h1>
+  //       </div>
+  //       <header className='navbar'>
+  //       <Navigation />
+  //       </header>
+  //       <Switch>
 
-          <Route exact path="/">
-            <Home 
+  //         <Route exact path="/">
+  //           <Home 
             // products={products} handleEdit = {handleEdit}
-            />
-          </Route>
+          //   />
+          // </Route>
 
 
-          <Route exact path="/login">
-            <Login/>
-          </Route>
+          // <Route exact path="/login">
+          //   <Login/>
+          // </Route>
 
 
           {/* <Route exact path="/dashboardLanding">
@@ -106,19 +108,19 @@ function App() {
           </Route> */}
 
 
-          <Route exact path="/comments">
-            <Comment/>
-          </Route>
+  //         <Route exact path="/comments">
+  //           <Comment/>
+  //         </Route>
 
 
-          <Route exact path="/about">
-            <About/>
-          </Route>
+  //         <Route exact path="/about">
+  //           <About/>
+  //         </Route>
 
-        </Switch>
-      </div>
-    </Router>
-  )
+  //       </Switch>
+  //     </div>
+  //   </Router>
+  // )
 }
 
 export default App     

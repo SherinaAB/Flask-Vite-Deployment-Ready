@@ -1,10 +1,47 @@
 import React from 'react'
 import { useRef, useState, useEffect  } from 'react';
 import { Bar, getDatasetAtEvent } from 'react-chartjs-2';
+import Products from './postman/Products';
 
 function DashboardLanding() {
   // <div>Dashboard Landing Page</div>
   const chartRef = useRef();
+  const [products, setProducts] = useState([]);
+  const [store, setStore] = useState([]);
+  const [sales, setSales] = useState([]);
+//   for (const product of products) {
+//     console.log(`Product Name: ${product.name}`);
+// // You can perform additional processing here
+//   }
+  useEffect(() => {
+    fetch('https://your-api-url/products')
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data)
+      })
+      .catch((error) => {
+          console.error('Error fetching products:', error);
+      });
+  
+    fetch('https://your-api-url/store')
+      .then((response) => response.json())
+      .then((data) => {
+        setStore(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching store data:', error);
+      });
+  
+    fetch('https://your-api-url/sales')
+      .then((response) => response.json())
+      .then((data) => {
+        setSales(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching sales data:', error);
+      });
+  }, []);
+  
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));
   }
@@ -18,8 +55,6 @@ function DashboardLanding() {
   );
 }
 
-
-    
 export default DashboardLanding
 
 
