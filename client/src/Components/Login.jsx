@@ -5,10 +5,10 @@ import { useState } from 'react'
 // functionality to create an account to route to new page
 
 function Login({updateUser}) {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [signup, setSignup] = useState(false)
-  const history = useHistory()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [signup, setSignup] = useState(false);
+  const history = useHistory();
 
   function handleUsername(e){
       setUsername(e.target.value)
@@ -29,8 +29,8 @@ function Login({updateUser}) {
           headers: {"Content-Type": "application/json"},
               body: JSON.stringify({username: username, password: password})
       })
-      .then( res=> {
-      if(res.ok){
+      .then( res => {
+        if(res.ok){
           res.json().then(user => {
               console.log(user)
               updateUser(user)
@@ -40,14 +40,14 @@ function Login({updateUser}) {
       })
   }
 
-// function handleLogout(e){
-//   e.preventDefault()
-//   fetch("/api/logout", {
-//     method: "DELETE",
-//     headers: {"Content-Type": "application/json"},
-//   })
-//   .then(setUser(null))
-// }
+  function handleLogout(e){
+      e.preventDefault()
+      fetch("/api/logout", {
+          method: "DELETE",
+          headers: {"Content-Type": "application/json"},
+      })
+      .then(setUser(null))
+  }
 
 return (
   <>
@@ -139,15 +139,15 @@ return (
 {/* =========== sign-in button =========== */}
 
 {/* =========== logout button ========== */}
-          {/* <div> 
+          <div> 
             <button
-              type="submit"
+              type="onClick"
               onClick={handleLogout}
               className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
             >
               Sign out
             </button>
-          </div> */}
+          </div>
 {/* =========== logout button ========== */}
         </form>
 

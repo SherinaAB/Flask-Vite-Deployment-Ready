@@ -18,7 +18,6 @@ function Navigation() {
           <Nav className="me-auto">
             <NavLink href="#home">Home</NavLink>
             <NavLink href="#login">Login</NavLink>
-
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Review</NavDropdown.Item>
@@ -26,7 +25,6 @@ function Navigation() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
-            
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -6,8 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navigation from './components/Navigation';
-import Login from './components/postman/Login';
-import Register from './components/postman/Register';
+import Login from './components/Login';
 import About from './components/About';
 import Comment from './components/Comment';
 
