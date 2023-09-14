@@ -90,7 +90,7 @@ function App() {
     <Router>
       <div id="container">
         {/* <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/> */}
-        <div className='Customize the best data driven storytelling dasboards for your next business review!'>
+        <div className=''>
           <h1>PERFORMANCE DASHBOARDS </h1>
           <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
         </div>
@@ -144,3 +144,4 @@ export default App
 // {/*   PROFILE PREFERRED VIEWS PAGE:  CHANGE TO SAVED USER PROFILE PREFERRED VIEWS PAGE ===== SAVE TO PROFILE OPTION =====  */}
 // {/*   COMMENTS PAGE:  CHAT, COMMENT, AND COMMUNICATE PAGE  */}
 // {/*   ABOUT PAGE:  DEFINE WHAT DASHBOARDS ARE, THEIR PURPOSE, USAGE, ANALYSIS AND IMPORTANCE OF STORYTELLING W/ SAMPLE*/}
+// 'Customize the best data driven storytelling dasboards for your next business review!'

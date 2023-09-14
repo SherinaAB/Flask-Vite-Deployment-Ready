@@ -3,21 +3,33 @@
   margin: 0, auto;
   padding: 2rem;
   text-align: center; */
+  /* display: flex; */
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100%; 
+  height: 100%;
+  z-index: 1; 
 }
 
 /* .container{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+} */
+
+.LoginContainer {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
 }
 
-.LoginForm {
+/* .LoginForm {
   text-align: center;
-  position: fixed;
+  vertical-align:middle;
+  position;
 } */
 
 /* .NavBar {
@@ -31,40 +43,44 @@
   top: 0;
   width: 100%;
   height: 100%;
-  
 }  */
-/* .App {
+
+.App {
   text-align:center;
   display:flex;
   min-height: 100vh;
+  flex-direction: column;
+  padding-left: 5rem;
   align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(79deg,#fcfced, #fcedfc 48%, #ebf6ff);
+  justify-content: top;
+  height: 100vh; /* 100% of the viewport height */
+  /* background-color: rgb(185, 184, 178);  */
+  background-image: linear-gradient(79deg,#fdfd0c, #fcedfc 48%, #ebf6ff);  
 }
 
 
-.auth-form-container, .login-form, .register-form {
+/* .auth-form-container, .login-form, .register-form {
   display: flex;
   flex-direction: column;
-}
+} */
 
-.auth-form-container{
+/* .auth-form-container{
   padding: 5rem;
-}
+} */
 
-label {
+/* label {
   text-align: left;
   padding: 0.25rem 0;
-}
+} */
 
-input {
+/* input {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
-}
+} */
 
-button {
+/* button {
   border: none;
   background-color: white;
   padding: 20px;
@@ -73,7 +89,7 @@ button {
 
 
 
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -107,5 +123,5 @@ button {
 
 .read-the-docs {
   color: #888;
-}
+} */
 

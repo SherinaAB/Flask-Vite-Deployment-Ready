@@ -2,8 +2,6 @@ import React from 'react'
 import { Link, useHistory} from 'react-router-dom'
 import { useState } from 'react'
 
-// functionality to create an account to route to new page
-
 function Login({updateUser}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -51,108 +49,110 @@ function Login({updateUser}) {
 
 return (
   <>
-    <div id="LoginForm">
-      <div className="">
-        <h2 className="">
-          Sign-in to your account
-        </h2>
-      </div>
-      <div className="">
-        <form onSubmit={handleSubmit}
-        className="" action="#" method="POST">
-{/* ======== username =========         */}
-          <div> 
-            <label className="">
-              Username
-            </label>
-            <div className="">
-              <input
-                id="username"
-                name="username"
-                type="text"
-                value={username}
-                onChange={handleUsername}
-                autoComplete="username"
-                required
-                className=""
-              />
-            </div>
-          </div> 
-{/* ======== username ========= */}
-
-{/* ========== email validation ==========*/}
-          {/* <div>
-            <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-              Email address
-            </label>
-            <div className="mt-2">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div> */}
-{/* ========== email validation ==========*/}
-
-{/* ============ password ===========*/}
-          <div> 
-              <div className="">
-                  <label htmlFor="password" className="">
-                    Password
-                  </label>
-
-                  <div className="">
-                      <a href="#" className="">
-                        Forgot Password?
-                      </a>
-                  </div>
-              </div>
-              
-              <div className="">
-                  <input
-                      id="password"
-                      name="password"
-                      type="text"
-                      value ={password}
-                      onChange={handlePassword}
-                      autoComplete="current-password"
-                      required
-                      className=""
-                  />
-              </div>
-          </div> 
-{/* ============ password ===========*/}
-
-{/* =========== sign-in button =========== */}          
-          <div>
-              <button
-                  type="submit"
-                  className="">
-                  Sign in
-              </button>
-            <button onClick={handleClick}>{signup?"Register":"Login"}</button>
-          </div> 
-{/* =========== sign-in button =========== */}
-
-{/* =========== logout button ========== */}
-          <div> 
-            <button
-              type="onClick"
-              onClick={handleLogout}
-              className=""
-            >
-              Sign out
-            </button>
+      <div id='LoginContainer'>
+        <div classname="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+              Sign-in to your account
+            </h2> 
           </div>
-{/* =========== logout button ========== */}
-        </form>
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form onSubmit={handleSubmit}
+            className="space-y-6" action="#" method="POST">
+    {/* ======== username =========         */}
+              <div> 
+                <label className="block text-sm font-medium leading-6 text-gray-900">
+                  Username
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="username"
+                    name="username"
+                    type="text"
+                    value={username}
+                    onChange={handleUsername}
+                    autoComplete="username"
+                    required
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div> 
+    {/* ======== username ========= */}
 
+    {/* ========== email validation ==========*/}
+              {/* <div>
+                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                  Email address
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div> */}
+    {/* ========== email validation ==========*/}
+
+    {/* ============ password ===========*/}
+              <div> 
+                  <div className="flex items-center justify-between">
+                      <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                        Password
+                      </label>
+
+                      <div className="text-sm">
+                          <a href="#" className="font-semibold text-pink-600 hover:text-pink-500">
+                            Forgot Password?
+                          </a>
+                      </div>
+                  </div>
+                  
+                  <div className="mt-2">
+                      <input
+                          id="password"
+                          name="password"
+                          type="text"
+                          value ={password}
+                          onChange={handlePassword}
+                          autoComplete="current-password"
+                          required
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pink-400 sm:text-sm sm:leading-6"
+                      />
+                  </div>
+              </div> 
+    {/* ============ password ===========*/}
+
+    {/* =========== sign-in button =========== */}          
+              <div>
+                  <button
+                      type="submit"
+                      className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600">
+                      Sign in
+                  </button>
+                <button onClick={handleClick}>{signup?"Register":"Login"}</button>
+              </div> 
+    {/* =========== sign-in button =========== */}
+
+    {/* =========== logout button ========== */}
+              <div> 
+                <button
+                  type="onClick"
+                  onClick={handleLogout}
+                  className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+                >
+                  Sign out
+                </button>
+              </div>
+    {/* =========== logout button ========== */}
+            </form>
+
+          </div>
+        </div>
       </div>
-    </div>
   </>
 )
 }
