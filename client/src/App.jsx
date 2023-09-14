@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navigation from './components/Navigation';
 import Home from './components/Home';
-import Login from './components/Login';
+import Login from './components/LoginNew';
+import Signup from './components/Signup';
 import DashboardLanding from './components/DashboardLanding';
 import About from './components/About';
 import Comment from './components/Comment';
@@ -25,7 +26,9 @@ function App() {
     .then(res=> {
       if (res.ok){
         res.json()
-        .then(data => setUser(data))
+        .then(data => {
+          console.log(data)
+          setUser(data)})
       }
       else{
         setUser(null)
@@ -42,8 +45,12 @@ function App() {
     return (
     // <> SHERINA'S PHASE-5 PROJECT</>
     <Router>
+        <div className=''>
+          <h1>PERFORMANCE DASHBOARDS </h1>
+          <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
+        </div>
       <div id="NavBar">
-        <Navigation />
+        <Navigation user={user} setUser={setUser}/>
       </div>
     <Switch>
           <Route exact path="/">
@@ -52,33 +59,20 @@ function App() {
             />
           </Route>
 
-          {/* <Route exact path="/login">
-            <Login />
-          </Route> */}
-
           <Route exact path="/login">
             <Login updateUser={updateUser}/>
           </Route>
 
-          <Route exact path="/dashboardlanding">
-            <DashboardLanding />
+          <Route exact path="/signup">
+            <Signup newUser={newUser}/>
           </Route>
 
-          {/* <Route exact path="/login">
-            <Login updateUser={updateUser}/>
-          </Route> */}
-          {/* <Route exact path="/register">
-            <Register/>
-          </Route> */}
-          {/* <Route exact path="/register">
-            <Register newUser={newUser}/>
-          </Route> */}
-          {/* <Route exact path="/comment">
+          <Route exact path="/comment">
             <Comment/>
           </Route>          
           <Route exact path="/about">
             <About/>
-          </Route> */}
+          </Route>
 
         </Switch>
     </Router>
@@ -95,7 +89,7 @@ function App() {
           <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
         </div>
         <header className='navbar'>
-        <Navigation />
+        <Navigation user={user} setUser={setUser}/>
         </header>
         <Switch>
 
@@ -105,26 +99,17 @@ function App() {
             />
           </Route>
 
-
-          {/* // <Route exact path="/login">
-          //   <Login/>
-          // </Route> */}
-
-
-          {/* <Route exact path="/dashboardLanding">
+          <Route exact path="/dashboardLanding">
             <DashboardLanding/>
-          </Route> */}
-
+          </Route>
 
           {/* <Route exact path="/preferredView">
             <PreferredView/>
           </Route> */}
 
-
           <Route exact path="/comments">
             <Comment/>
           </Route>
-
 
           <Route exact path="/about">
             <About/>

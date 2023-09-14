@@ -6,18 +6,27 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Navigation() {
+function Navigation({user, setUser}) {
 
+  function handleLogout(e){
+    e.preventDefault()
+    fetch("/api/logout", {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"},
+    })
+    .then(setUser(null))
+}
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">CREATE/ANALYZE YOUR DYNAMIC DATA PERFORMANCE DASHBOARDS FOR YOUR BUSINESS</Navbar.Brand>
+        <Navbar.Brand href="/home">CREATE/ANALYZE YOUR DYNAMIC DATA PERFORMANCE DASHBOARDS FOR YOUR BUSINESS</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
+            {!user ? <Nav.Link onClick={handle}>Signup</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
             <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>
