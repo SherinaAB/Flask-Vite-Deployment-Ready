@@ -64,7 +64,7 @@ function App() {
           </Route>
 
           <Route exact path="/signup">
-            <Signup newUser={newUser}/>
+            <Signup updateUser={updateUser}/>
           </Route>
 
           <Route exact path="/comment">

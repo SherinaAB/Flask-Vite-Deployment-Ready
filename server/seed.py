@@ -99,7 +99,7 @@ def create_products():
                 price = randint(25, 100),
                 status = is_approved,
                 image = fake.image_url(),                
-                category_id = randint(1, 50),
+                category_id = randint(1, 10),
             )
         )
     return products
@@ -129,8 +129,8 @@ def create_sales():
                 sale_amount = randint(10000, 100000),
                 sale_units = randint(200, 2000),
                 user_id= randint(1, 50),
-                timeframemodel_id = randint(1, 50),
-                category_id = randint(1, 50),
+                timeframemodel_id = randint(1, 12),
+                category_id = randint(1, 10),
                 store_id = randint(1, 50),  
             )
         )
@@ -138,20 +138,20 @@ def create_sales():
 
 def create_sales_per_month(timeframes):
     sales = []
-    for time in timeframes:
-        print(time)
+    for timeframe in timeframes:
+        # print(timeframe)
         for _ in range(5):
             sales.append(
                 Sales(
                     sale_amount = randint(10000, 100000),
                     sale_units = randint(200, 2000),
                     user_id= randint(1, 50),
-                    timeframemodel_id = time.id,
-                    category_id = randint(1, 50),
+                    timeframemodel_id = timeframe.id,
+                    category_id = randint(1, 10),
                     store_id = randint(1, 50),  
                 )
             )
-        return sales
+    return sales
 
 # def create_sales_for_march():
 #     sales = []
@@ -198,7 +198,21 @@ if __name__ == '__main__':
         db.session.commit()
 
         print("Creating categories...")
-        categories = create_categories()
+        # categories = create_categories()
+        categories = [
+            Category(name="Shirts"),
+            Category(name="Jeans"),
+            Category(name="Dresses"),
+            Category(name="Sweaters"),
+            Category(name="Jackets"),
+            Category(name="Shorts"),
+            Category(name="Suits"),
+            Category(name="Activewear"),
+            Category(name="Skirts"),
+            Category(name="Accessories"),
+        ]
+
+        # Add categories to the database and commit
         db.session.add_all(categories)
         db.session.commit()
 

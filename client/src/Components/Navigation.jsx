@@ -26,7 +26,7 @@ function Navigation({user, setUser}) {
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link>
             {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
-            {!user ? <Nav.Link onClick={handle}>Signup</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
+            {!user ? <Nav.Link href="/signup">SignUp</Nav.Link> : null}
             <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>

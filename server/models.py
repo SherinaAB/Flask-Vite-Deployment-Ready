@@ -95,7 +95,7 @@ class Sales(db.Model, SerializerMixin):
     categories = db.relationship('Category', back_populates='sales')
     stores = db.relationship('Store', back_populates='sales')
 
-    serialize_rules = ('-categories', '-stores','-user', '-timeframemodel',)
+    serialize_rules = ('-categories.sales', '-stores.sales','-user', '-timeframemodel',)
 
 
 class Category(db.Model, SerializerMixin):
