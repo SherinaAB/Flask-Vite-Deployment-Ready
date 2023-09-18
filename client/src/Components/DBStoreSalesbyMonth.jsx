@@ -49,27 +49,18 @@ function DashboardLanding({visibleMonth}) {
       .then((response) => response.json())
       .then((data) => {
         setStores(data)
-        setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-          // const dataSet = [data];
-          // let sum = 0;
-          // dataSet.forEach(store => {
-          //   sum += store;
-          // })
-          // console.log(sum);
-          // ======== ADD FOR EACH LOOP HERE ========
-        // const sales = stores.map(store => store.sales)
-        // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
-        // const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
-        // setDataSet(Totals)
-        // console.log('look', dataSet)
+        // setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+        const sales = stores.map(store => store.sales)
+        setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
+        const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
+        setDataSet(Totals)
+        console.log('look', sales)
       // .catch((error) => {
       //   console.error('Error fetching store data:', error);
       // });
 
   });
   }, [visibleMonth]);
-
-  console.log(dataSet)
 
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));
@@ -84,7 +75,7 @@ function DashboardLanding({visibleMonth}) {
         labels,
         datasets: [
           {
-            label: 'Stores by Store Name',
+            label: 'Stores',
             data: dataSet,
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },    
