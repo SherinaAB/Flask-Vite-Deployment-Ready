@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css'
 import Navigation from './components/Navigation';
+import MonthFilter from './components/MonthFilter';
 import Home from './components/Home';
 import Login from './components/LoginNew';
 import Signup from './components/Signup';
@@ -14,8 +15,29 @@ import About from './components/About';
 import Comment from './components/Comment';
 
 function App() {
+  
+  const [month, setMonth] = useState([])
+  
+  function fetchMonth() {
+    fetch('/api/timeframes')
+    .then(res=> {
+      if (res.ok){
+        res.json()
+        .then(data => {
+          // console.log(data)
+          setMonth(data)})
+      }
+    })
+  }
 
-  //user state & fetch
+  const [selectedMonth, setSelectedMonth] = useState("All")
+  // console.log(selectedMonth)
+
+  const visibleMonth = month.filter(
+    singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
+  )
+  // console.log(visibleMonth)
+
   const [user, setUser] = useState(null)
   function updateUser(new_user){
     setUser(new_user)
@@ -27,7 +49,7 @@ function App() {
       if (res.ok){
         res.json()
         .then(data => {
-          console.log(data)
+          // console.log(data)
           setUser(data)})
       }
       else{
@@ -37,6 +59,7 @@ function App() {
   }
 
   useEffect(()=>{
+    fetchMonth()
     fetchUsers()
   },[])
 
@@ -91,6 +114,15 @@ function App() {
         <header className='navbar'>
         <Navigation user={user} setUser={setUser}/>
         </header>
+        <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
+          <div>
+              <button
+                  type="submit"
+                  >
+                  MonthFilter
+              </button>
+            
+          </div> 
         <Switch>
 
           <Route exact path="/">
@@ -100,7 +132,7 @@ function App() {
           </Route>
 
           <Route exact path="/dashboardLanding">
-            <DashboardLanding/>
+            <DashboardLanding visibleMonth={visibleMonth}/>
           </Route>
 
           {/* <Route exact path="/preferredView">

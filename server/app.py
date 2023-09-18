@@ -311,7 +311,7 @@ class ProductsById(Resource):
 # # ===================== STORE ===================== #
 class Stores(Resource):
     def get(self):
-        stores = [stores.to_dict() for stores in Store.query.all()]
+        stores = [store.to_dict(rules=('sales',)) for store in Store.query.all()]
         return make_response(stores, 200)
     def post(self):
         fields = request.get_json()
