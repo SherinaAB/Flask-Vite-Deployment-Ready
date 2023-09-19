@@ -43,34 +43,36 @@ function DashboardLanding({visibleMonth}) {
       },
     },
   };
-
   useEffect(() => {  
     fetch('/api/stores')
       .then((response) => response.json())
       .then((data) => {
         setStores(data)
-        setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-          // const dataSet = [data];
-          // let sum = 0;
-          // dataSet.forEach(store => {
-          //   sum += store;
-          // })
-          // console.log(sum);
-          // ======== ADD FOR EACH LOOP HERE ========
+        setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+          const dataSet = [data];
+          let sum = 0;
+          dataSet.forEach(store => {
+            // console.log('forEach',store.sales)
+            store.forEach(singleSale => {
+              // console.log('forEach',singleSale)
+                singleSale.sales.forEach(sale =>
+                  // console.log('forEach',sale
+                  sum += singleSale.sale_amount)})
+          })
+            // console.log('forEach',store)   
+      })
+          // console.log('forEach',dataSet)
+          // console.log('forEach data',data);
         // const sales = stores.map(store => store.sales)
         // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
         // const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
         // setDataSet(Totals)
-        // console.log('look', dataSet)
       // .catch((error) => {
       //   console.error('Error fetching store data:', error);
       // });
 
-  });
-  }, [visibleMonth]);
-
-  console.log(dataSet)
-
+  }),[visibleMonth];
+  // console.log(dataSet)
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));
   }
@@ -88,8 +90,8 @@ function DashboardLanding({visibleMonth}) {
             data: dataSet,
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },    
-    ],
-  };
+        ],
+      };
 
   return (
     <>

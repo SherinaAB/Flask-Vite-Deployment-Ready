@@ -28,6 +28,8 @@ function Navigation({user, setUser}) {
             {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
             {!user ? <Nav.Link href="/signup">SignUp</Nav.Link> : null}
             <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
+            <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+            <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

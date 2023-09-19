@@ -11,8 +11,10 @@ import Home from './components/Home';
 import Login from './components/LoginNew';
 import Signup from './components/Signup';
 import DashboardLanding from './components/DashboardLanding';
+import DBPriceGap from './components/DBPriceGap';
 import About from './components/About';
 import Comment from './components/Comment';
+// import DBCatSales from './components/DBCatSales';
 
 function App() {
   
@@ -75,7 +77,7 @@ function App() {
       <div id="NavBar">
         <Navigation user={user} setUser={setUser}/>
       </div>
-    <Switch>
+      <Switch>
           <Route exact path="/">
             <Home 
             // products={products} history = {history} handleEdit={handleEdit}
@@ -97,7 +99,7 @@ function App() {
             <About/>
           </Route>
 
-        </Switch>
+      </Switch>
     </Router>
     )
   }
@@ -135,8 +137,12 @@ function App() {
             <DashboardLanding visibleMonth={visibleMonth}/>
           </Route>
 
-          {/* <Route exact path="/preferredView">
-            <PreferredView/>
+          <Route exact path="/dbpricegap">
+            <DBPriceGap/>
+          </Route>
+
+          {/* <Route exact path="/dbcatsales">
+            <DBCatSales/>
           </Route> */}
 
           <Route exact path="/comments">
