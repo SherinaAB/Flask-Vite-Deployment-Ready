@@ -10,8 +10,7 @@ import { NavLink,Link } from 'react-router-dom'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 // import {HiOutlineMenuAlt4} from 'react-icons/hi'
 
-
-function Quadrant({user, setUser, MonthFilter}) {
+function Quadrant({user, setUser}) {
 
   function handleLogout(e){
     e.preventDefault()
@@ -23,39 +22,39 @@ function Quadrant({user, setUser, MonthFilter}) {
 
   const [month, setMonth] = useState([])
 
-  function fetchMonth() {
-    fetch('/api/timeframes')
-    .then(res=> {
-      if (res.ok){
-        res.json()
-        .then(data => {
-          // console.log(data)
-          setMonth(data)})
-      }
-    })
-  }
+  // function fetchMonth() {
+  //   fetch('/api/timeframes')
+  //   .then(res=> {
+  //     if (res.ok){
+  //       res.json()
+  //       .then(data => {
+  //         // console.log(data)
+  //         setMonth(data)})
+  //     }
+  //   })
+  // }
 
-  const [selectedMonth, setSelectedMonth] = useState("All")
-  // console.log(selectedMonth)
+  // const [selectedMonth, setSelectedMonth] = useState("All")
+  // // console.log(selectedMonth)
 
-  const visibleMonth = month.filter(
-    singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
-  )
+  // const visibleMonth = month.filter(
+  //   singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
+  // )
   // console.log(visibleMonth)
   }
 
-  useEffect(()=>{
-    fetchMonth()
+  // useEffect(()=>{
+  //   fetchMonth()
 
-  },[])
+  // },[])
 
   return (
     <>
     <div>
-    <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
+    {/* <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
       <div>
         <button type="submit"> MonthFilter</button>
-      </div>  
+      </div>   */}
     {/*FIRST NAVBAR*/}
 
     {/* <Navbar expand="lg" className="bg-body-tertiary">
@@ -115,16 +114,17 @@ function Quadrant({user, setUser, MonthFilter}) {
 
     <Container>
       <Row className="justify-content-md-left">
-
+        <div>
+          <h1> ROW 1</h1>
+        </div>
         <Col md="auto">
           <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-              <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+              <Navbar.Brand href="/dashboardlanding">Select Chart to View</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 {/* <Nav className="me-auto">   */}
                 <Nav variant="tabs" defaultActiveKey="/dashboardlanding">
- 
                   <Nav.Item>
                     <Nav.Link href="/dbstoresales">All Stores All Categories</Nav.Link>
                   </Nav.Item>
@@ -163,20 +163,27 @@ function Quadrant({user, setUser, MonthFilter}) {
         </Col>
 
         <Col xs lg="2">
-          2 of 2
+        <div>
+          <h1> Column Right-Top</h1>
+        </div>
         </Col>
       </Row>
 
 
-      <Row className="justify-content-md-right">
+      <Row className="justify-content-md-left">
+        <div>
+          <h1> ROW 1</h1>
+        </div>
         <Col>
-        1 of 2
+        <div>
+          <h1> Column Left-Bottom</h1>
+        </div>
         </Col>
 
         <Col md="auto">
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-              <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+              <Navbar.Brand href="/dashboardlanding">Select Chart to View</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 {/* <Nav className="me-auto">   */}
@@ -217,7 +224,9 @@ function Quadrant({user, setUser, MonthFilter}) {
           </Navbar>
           
         </Col>
-
+        <div>
+          <h1> ROW 2</h1>
+        </div>
       </Row>
     </Container>
 
