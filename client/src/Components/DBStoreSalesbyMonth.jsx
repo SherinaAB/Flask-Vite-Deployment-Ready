@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-function DashboardLanding({visibleMonth}) {
+function DBStoreSalesByMonth({visibleMonth}) {
 
   const chartRef = useRef();
   const [products, setProducts] = useState([]);
@@ -95,7 +95,7 @@ function DashboardLanding({visibleMonth}) {
   );
 }
 
-export default DashboardLanding
+export default DBStoreSalesByMonth
 
 
       //   [const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

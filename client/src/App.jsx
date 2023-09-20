@@ -14,31 +14,35 @@ import DashboardLanding from './components/DashboardLanding';
 import DBPriceGap from './components/DBPriceGap';
 import About from './components/About';
 import Comment from './components/Comment';
-// import DBCatSales from './components/DBCatSales';
+import DBCatSales from './components/DBCatSales';
+import DBCategorySalesByMonth from './components/DBCategorySalesByMonth';
+import DBStoreSalesByMonth from './components/DBStoreSalesByMonth';
+import Quadrant from './components/ChartQuadrant';
+import Image from 'react-bootstrap/Image';
 
 function App() {
   
-  const [month, setMonth] = useState([])
+  // const [month, setMonth] = useState([])
   
-  function fetchMonth() {
-    fetch('/api/timeframes')
-    .then(res=> {
-      if (res.ok){
-        res.json()
-        .then(data => {
-          // console.log(data)
-          setMonth(data)})
-      }
-    })
-  }
+  // function fetchMonth() {
+  //   fetch('/api/timeframes')
+  //   .then(res=> {
+  //     if (res.ok){
+  //       res.json()
+  //       .then(data => {
+  //         // console.log(data)
+  //         setMonth(data)})
+  //     }
+  //   })
+  // }
 
-  const [selectedMonth, setSelectedMonth] = useState("All")
-  // console.log(selectedMonth)
+  // const [selectedMonth, setSelectedMonth] = useState("All")
+  // // console.log(selectedMonth)
 
-  const visibleMonth = month.filter(
-    singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
-  )
-  // console.log(visibleMonth)
+  // const visibleMonth = month.filter(
+  //   singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
+  // )
+  // // console.log(visibleMonth)
 
   const [user, setUser] = useState(null)
   function updateUser(new_user){
@@ -61,7 +65,7 @@ function App() {
   }
 
   useEffect(()=>{
-    fetchMonth()
+    // fetchMonth()
     fetchUsers()
   },[])
 
@@ -116,15 +120,15 @@ function App() {
         <header className='navbar'>
         <Navigation user={user} setUser={setUser}/>
         </header>
-        <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
-          <div>
+        {/* <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/> */}
+          {/* <div>
               <button
                   type="submit"
                   >
                   MonthFilter
               </button>
             
-          </div> 
+          </div>  */}
         <Switch>
 
           <Route exact path="/">
@@ -134,16 +138,32 @@ function App() {
           </Route>
 
           <Route exact path="/dashboardLanding">
-            <DashboardLanding visibleMonth={visibleMonth}/>
+            <DashboardLanding />
+          </Route>          
+          
+          <Route exact path="/chartquadrant">
+            <Quadrant />
+          </Route>
+
+          <Route exact path="/dbstoresalesbymonth">
+            <DBStoreSalesByMonth />
           </Route>
 
           <Route exact path="/dbpricegap">
             <DBPriceGap/>
           </Route>
 
-          {/* <Route exact path="/dbcatsales">
+          <Route exact path="/dbcatsales">
             <DBCatSales/>
-          </Route> */}
+          </Route>
+
+          <Route exact path="/dbcategorybymonth">
+            <DBCategorySalesByMonth/>
+          </Route>
+
+          <Route exact path="/dbcategorybymonth">
+            <DBCategorySalesByMonth/>
+          </Route>
 
           <Route exact path="/comments">
             <Comment/>

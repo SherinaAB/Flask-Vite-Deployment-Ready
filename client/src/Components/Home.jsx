@@ -1,15 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-
+import Image from 'react-bootstrap/Image';
 
 function Home({}) {
   const [createDashboard, setCreateDashboard] = useState(false)
 
   function handleClick(){
     createDashboard(!createDashboard);
-  }
+  }    
 
   return (
+
     <>
       <div id="LandingPageBackground">
           {/* <img src="assets/PaperStyle.jpg" alt="Image by Freepik"

@@ -21,9 +21,8 @@ ChartJS.register(
   Legend
 );
 
-function DashboardLanding({visibleMonth}) {
-  // <div>Dashboard Landing Page</div>
-  // console.log(visibleMonth)
+function DBStoreSales({visibleMonth}) {
+
   const chartRef = useRef();
   const [products, setProducts] = useState([]);
   const [dataSet, setDataSet] = useState([]);
@@ -31,10 +30,6 @@ function DashboardLanding({visibleMonth}) {
   const [stores, setStores] = useState([]);
   const [sales, setSales] = useState([]);
   const [salesByMonth, setSalesByMonth] = useState([]);
-//   for (const product of products) {
-//     console.log(`Product Name: ${product.name}`);
-// // You can perform additional processing here
-//   }
 
   const options = {
     responsive: true,
@@ -48,65 +43,40 @@ function DashboardLanding({visibleMonth}) {
       },
     },
   };
-  // console.log("specific stuff:", salesByMonth)
-  // const labels = [products.price];
-
-  useEffect(() => {
-    // fetch('/api/products')
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setProducts(data)
-    //     console.log(data)
-    //   })
-    //   .catch((error) => {
-    //       console.error('Error fetching products:', error);
-    //   });
-  
+  useEffect(() => {  
     fetch('/api/stores')
       .then((response) => response.json())
       .then((data) => {
-        setStores(data);
-        // setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-        setSalesByMonth(stores.map(store => store.sales).filter(singleSale => singleSale.timeframe === visibleMonth).map(singleSale => singleSale.sale_amount))
-        console.log('look',salesByMonth)
+        setStores(data)
+        setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+          const dataSet = [data];
+          let sum = 0;
+          dataSet.forEach(store => {
+            // console.log('forEach',store.sales)
+            store.forEach(singleSale => {
+              // console.log('forEach',singleSale)
+                singleSale.sales.forEach(sale =>
+                  // console.log('forEach',sale
+                  sum += singleSale.sale_amount)})
+          })
+            // console.log('forEach',store)   
+      })
+          // console.log('forEach',dataSet)
+          // console.log('forEach data',data);
+        // const sales = stores.map(store => store.sales)
+        // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
+        // const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
+        // setDataSet(Totals)
       // .catch((error) => {
       //   console.error('Error fetching store data:', error);
       // });
 
-      // console.log('look here: ', visibleMonth)
-
-
-  //   fetch('/api/sale')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       setSales(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching sales data:', error);
-  //     
-      });
-  }, [visibleMonth]);
-  
-  
+  }),[visibleMonth];
+  // console.log(dataSet)
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));
   }
 
-  // useEffect(() => {
-  //   setDataSet(products?.map((singleProduct) => singleProduct.price))
-  //   setDataName(products?.map((singleProduct) => singleProduct.name))
-
-  // },[products])
-  // const labels = dataName
-  // const data = {
-  //   labels,
-  //   datasets: [
-  //     {
-  //       label: 'Price',
-  //       data: dataSet,
-  //       backgroundColor: 'rgba(255, 99, 132, 0.5)',
-  //     },
       useEffect(() => {
         // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
         setDataName(stores?.map((singleStore) => singleStore.name))
@@ -116,22 +86,16 @@ function DashboardLanding({visibleMonth}) {
         labels,
         datasets: [
           {
-            label: 'Stores',
-            data: salesByMonth,
+            label: 'Stores by Store Name',
+            data: dataSet,
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },    
-    ],
-  };
+        ],
+      };
 
   return (
     <>
-    {/* {dataSet.length > 0 ? <Bar
-      ref={chartRef}
-      options={options}
-      data={data}
-      onClick={onClick}
-    /> :
-    null } */}
+
     <Bar
       ref={chartRef}
       options={options}
@@ -142,7 +106,7 @@ function DashboardLanding({visibleMonth}) {
   );
 }
 
-export default DashboardLanding
+export default DBStoreSales
 
 
       //   [const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];

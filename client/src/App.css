@@ -3,19 +3,23 @@
   margin: 0, auto;
   padding: 2rem;
   text-align: center; */
-  /* display: flex; */
+  display: flex;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; 
-}
-
-/* .container{
+  z-index: 1;
+  background-image: url('/Users/sherinabuenaseda/Development/code/phase-5/Phase-5-Python-Flask-React-Chart-Dashboard/client/src/assets/PaperStyle.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-} */
+}
+
+.container{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .LoginContainer {
   background-color: white;
@@ -26,13 +30,13 @@
   max-width: 400px;
 }
 
-/* .LoginForm {
+.LoginForm {
   text-align: center;
   vertical-align:middle;
-  position;
-} */
+  position: fixed;
+}
 
-/* .NavBar {
+.NavBar {
   text-align: center;
   position: fixed;
   top: 0;
@@ -43,19 +47,19 @@
   top: 0;
   width: 100%;
   height: 100%;
-}  */
+} 
 
 .App {
   text-align:center;
   display:flex;
   min-height: 100vh;
   flex-direction: column;
-  padding-left: 5rem;
+  padding: 100px;
   align-items: center;
   justify-content: top;
-  height: 100vh; /* 100% of the viewport height */
+  height: 100vh;
   /* background-color: rgb(185, 184, 178);  */
-  background-image: linear-gradient(79deg,#fdfd0c, #fcedfc 48%, #ebf6ff);  
+  /* background-image: linear-gradient(79deg,#fdfd0c, #fcedfc 48%, #ebf6ff);   */
 }
 
 
@@ -68,24 +72,24 @@
   padding: 5rem;
 } */
 
-/* label {
+label {
   text-align: left;
   padding: 0.25rem 0;
-} */
+} 
 
-/* input {
+input {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
   border-radius: 10px;
-} */
+}
 
-/* button {
+button {
   border: none;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-} */
+}
 
 
 

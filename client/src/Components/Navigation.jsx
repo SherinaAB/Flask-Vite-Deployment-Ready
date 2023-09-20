@@ -20,24 +20,30 @@ function Navigation({user, setUser}) {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/home">CREATE/ANALYZE YOUR DYNAMIC DATA PERFORMANCE DASHBOARDS FOR YOUR BUSINESS</Navbar.Brand>
+        <Navbar.Brand href="/signup">{user && (<p> Welcome, {user.first_name}!</p>)}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
+          {/* <Navbar.Text>
+            <a href="/signup">{user && (<p> Welcome, {user.first_name}!</p>)}</a>
+          </Navbar.Text> */}
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
+            <Nav.Link href="/">Home</Nav.Link>
+
             {!user ? <Nav.Link href="/signup">SignUp</Nav.Link> : null}
-            <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
+            {user ? <Nav.Link href="/chartquadrant">View Dashboards</Nav.Link> : null}
+            {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
+            {/* <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
             <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
             <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+            <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link> */}
+            <Nav.Link href="/about">About</Nav.Link>
+            <NavDropdown title="Communicate" id="basic-nav-dropdown">
+              {/* <NavDropdown.Item href="/about">About</NavDropdown.Item> */}
+              <NavDropdown.Item href="/comment">
                 Review</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Suggestions</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Live Chat Link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

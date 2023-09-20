@@ -2,8 +2,9 @@ import React, { useEffect, useState} from 'react'
 // import NewComment from './NewComment'
 // import NewStory from './NewStory'
 
+// ************************** ADD JSON.db TO ADD STORIES ************************
 
-function Comment({item}) {
+function Comment() {
     const [newComment,setNewComment] = useState([])
     const [newStory, setNewStory] = useState([])
 

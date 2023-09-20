@@ -96,7 +96,7 @@ class Sales(db.Model, SerializerMixin):
     stores = db.relationship('Store', back_populates='sales')
 
     # serialize_rules = ('-categories.sales', '-stores.sales','-user', '-timeframemodel',)
-    serialize_rules = ('-user', '-timeframemodel',)
+    serialize_rules = ('-categories.sales', '-stores.sales','-user', '-timeframemodel',)
     #'-categories.sales', (removed to see if i can pull in category sales into DBCatSales component) did the same with stores.sales yesterday with Mark
 
 class Category(db.Model, SerializerMixin):
