@@ -74,7 +74,7 @@ function Signup({updateUser, props}) {
           </Form.Group>
           <Button type="submit">Register</Button>
         </Form>
-        <Button className="link-btn" onClick={() => props.onFormSwitch('login')}>Don't have an account? Register here.</Button>
+        <Button className="link-btn" onClick={() => props.onFormSwitch('loginnew')}>Don't have an account? Register here.</Button>
       </div>
     </>
   )

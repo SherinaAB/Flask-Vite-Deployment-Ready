@@ -12,13 +12,13 @@ import Login from './components/LoginNew';
 import Signup from './components/Signup';
 import DashboardLanding from './components/DashboardLanding';
 import DBPriceGap from './components/DBPriceGap';
-import About from './components/About';
-import Comment from './components/Comment';
 import DBCatSales from './components/DBCatSales';
 import DBCategorySalesByMonth from './components/DBCategorySalesByMonth';
 import DBStoreSalesByMonth from './components/DBStoreSalesByMonth';
 import Quadrant from './components/Quadrant';
 import Image from 'react-bootstrap/Image';
+import About from './components/About';
+import Comment from './components/Comment';
 
 function App() {
   
@@ -81,18 +81,18 @@ function App() {
     // <> SHERINA'S PHASE-5 PROJECT</>
     
     <Router>
-        <div className=''>
-          <h1>PERFORMANCE DASHBOARDS </h1>
-          <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
+      <div className='PageName'>
+        <h1>PERFORMANCE DASHBOARDS </h1>
+        <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
+      </div>
+        <div id="NavBar">
+          <Navigation user={user} setUser={setUser}/>
         </div>
-      <div id="NavBar">
-        <Navigation user={user} setUser={setUser}/>
-      </div>
-      <div className='App'>
-        {
-          currentForm === 'login' ? <Login updateUser={updateUser} onFormSwitch={toggleForm}/> : <Signup updateUser={updateUser} onFormSwitch={toggleForm}/>
-        }
-      </div>
+          {/* <div className='Form'>
+            {
+              currentForm === 'loginnew' ? <Login updateUser={updateUser} onFormSwitch={toggleForm}/> : <Signup updateUser={updateUser} onFormSwitch={toggleForm}/>
+            }
+          </div> */}
       <Switch>
           <Route exact path="/">
             <Home 
@@ -100,13 +100,13 @@ function App() {
             />
           </Route>
 
-          {/* <Route exact path="/loginnew">
+          <Route exact path="/loginnew">
             <Login updateUser={updateUser}/>
           </Route>
 
           <Route exact path="/signup">
             <Signup updateUser={updateUser}/>
-          </Route> */}
+          </Route>
 
           <Route exact path="/comment">
             <Comment/>
