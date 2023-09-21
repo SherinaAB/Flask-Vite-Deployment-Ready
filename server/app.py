@@ -394,7 +394,7 @@ class Sale(Resource):
                     )
                 db.session.add(new_sale)
                 db.session.commit()
-                return make_response(new_sale.to_dict(rules=('')), 201)
+                return make_response(new_sale.to_dict(rules=('stores.sales',)), 201)
         except ValueError:
             return make_response({'error': 'validation error'}, 422)
         

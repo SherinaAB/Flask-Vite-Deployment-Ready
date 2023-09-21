@@ -21,7 +21,7 @@ ChartJS.register(
   Legend
 );
 
-function DashboardLanding({visibleMonth}) {
+function DashboardLanding({}) {
 
   const chartRef = useRef();
   const [products, setProducts] = useState([]);
@@ -43,25 +43,25 @@ function DashboardLanding({visibleMonth}) {
       },
     },
   };
-  useEffect(() => {  
+  
     fetch('/api/stores')
       .then((response) => response.json())
-      .then((data) => {
+      .then((data) => {useEffect(() => {  
         setStores(data)
         setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-          const dataSet = [data];
-          let sum = 0;
-          dataSet.forEach(store => {
-            // console.log('forEach',store.sales)
-            store.forEach(singleSale => {
-              // console.log('forEach',singleSale)
-                singleSale.sales.forEach(sale =>
-                  // console.log('forEach',sale
-                  sum += singleSale.sale_amount)})
-          })
-            // console.log('forEach',store)   
+          // const dataSet = [data];
+          // let sum = 0;
+          // dataSet.forEach(store => {
+          //   // console.log('forEach',store.sales)
+          //   store.forEach(singleSale => {
+          //     // console.log('forEach',singleSale)
+          //       singleSale.sales.forEach(sale =>
+          //         // console.log('forEach',sale
+          //         sum += sale.sale_amount)})
+          // })
+          //   console.log('store sales',sum)   
       })
-          // console.log('forEach',dataSet)
+          console.log('forEach',dataSet)
           // console.log('forEach data',data);
         // const sales = stores.map(store => store.sales)
         // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
@@ -71,7 +71,7 @@ function DashboardLanding({visibleMonth}) {
       //   console.error('Error fetching store data:', error);
       // });
 
-  }),[visibleMonth];
+  });
   // console.log(dataSet)
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));

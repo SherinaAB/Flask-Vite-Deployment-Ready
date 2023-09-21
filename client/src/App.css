@@ -33,7 +33,7 @@
 .LoginForm {
   text-align: center;
   vertical-align:middle;
-  position: fixed;
+  position: relative;
 }
 
 .NavBar {
@@ -52,25 +52,34 @@
 .App {
   text-align:center;
   display:flex;
-  min-height: 100vh;
+  min-height: 50vh;  
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 100px;
-  align-items: center;
-  justify-content: top;
-  height: 100vh;
-  /* background-color: rgb(185, 184, 178);  */
-  /* background-image: linear-gradient(79deg,#fdfd0c, #fcedfc 48%, #ebf6ff);   */
+
+  height: 90vh;
+  color: white;
+/* ================ LOGIN FORM CSS ================== */
+  /* background-image: linear-gradient(79deg,#140cfd, #7439db 48%, #c66fbc);   */
+  background-image: linear-gradient(79deg,#7439db, #c66fbc 48%, #F7944D); 
 }
 
-
-/* .auth-form-container, .login-form, .register-form {
+@media screen and (min-width: 600px) {
+  .auth-form-container{
+  padding: 5rem;
+  border: 1px solid white;
+  border-radius: 10px;  
+  margin: 0.5rem;
+  }
+}
+.auth-form-container, .login-form, .signup-form {
   display: flex;
   flex-direction: column;
-} */
-
-/* .auth-form-container{
-  padding: 5rem;
-} */
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
 
 label {
   text-align: left;
@@ -89,8 +98,15 @@ button {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+  cursor: pointer;
+  color: #7439db;
 }
 
+.link-btn {
+  background: none;
+  color: white;
+  text-decoration: underline;
+}
 
 
 /* .logo {

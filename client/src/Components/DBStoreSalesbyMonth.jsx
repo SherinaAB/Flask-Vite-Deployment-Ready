@@ -23,76 +23,76 @@ ChartJS.register(
 
 function DBStoreSalesByMonth({visibleMonth}) {
 
-  const chartRef = useRef();
-  const [products, setProducts] = useState([]);
-  const [dataSet, setDataSet] = useState([]);
-  const [dataName, setDataName] = useState([]);
-  const [stores, setStores] = useState([]);
-  const [sales, setSales] = useState([]);
-  const [salesByMonth, setSalesByMonth] = useState([]);
+  // const chartRef = useRef();
+  // const [products, setProducts] = useState([]);
+  // const [dataSet, setDataSet] = useState([]);
+  // const [dataName, setDataName] = useState([]);
+  // const [stores, setStores] = useState([]);
+  // const [sales, setSales] = useState([]);
+  // const [salesByMonth, setSalesByMonth] = useState([]);
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Bar Chart',
-      },
-    },
-  };
+  // const options = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top',
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Chart.js Bar Chart',
+  //     },
+  //   },
+  // };
 
-  useEffect(() => {  
-    fetch('/api/stores')
-      .then((response) => response.json())
-      .then((data) => {
-        setStores(data)
-        // setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-        const sales = stores.map(store => store.sales)
-        setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
-        const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
-        setDataSet(Totals)
-        console.log('look', sales)
-      // .catch((error) => {
-      //   console.error('Error fetching store data:', error);
-      // });
+  // useEffect(() => {  
+  //   fetch('/api/stores')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setStores(data)
+  //       // setDataSet(stores.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+  //       const sales = stores.map(store => store.sales)
+  //       setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
+  //       const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
+  //       setDataSet(Totals)
+  //       console.log('look', sales)
+  //     // .catch((error) => {
+  //     //   console.error('Error fetching store data:', error);
+  //     // });
 
-  });
-  }, [visibleMonth]);
+  // });
+  // }, [visibleMonth]);
 
-  const onClick = (event) => {
-    console.log(getDatasetAtEvent(chartRef.current, event));
-  }
+  // const onClick = (event) => {
+  //   console.log(getDatasetAtEvent(chartRef.current, event));
+  // }
 
-      useEffect(() => {
-        // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
-        setDataName(stores?.map((singleStore) => singleStore.name))
-      },[stores])
-      const labels = dataName
-      let data = {
-        labels,
-        datasets: [
-          {
-            label: 'Stores',
-            data: dataSet,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },    
-    ],
-  };
+  //     useEffect(() => {
+  //       // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
+  //       setDataName(stores?.map((singleStore) => singleStore.name))
+  //     },[stores])
+  //     const labels = dataName
+  //     let data = {
+  //       labels,
+  //       datasets: [
+  //         {
+  //           label: 'Stores',
+  //           data: dataSet,
+  //           backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  //         },    
+  //   ],
+  // };
 
-  return (
-    <>
+  // return (
+  //   <>
 
-    <Bar
-      ref={chartRef}
-      options={options}
-      data={data}
-      onClick={onClick}
-    /> 
-    </>
-  );
+  //   <Bar
+  //     ref={chartRef}
+  //     options={options}
+  //     data={data}
+  //     onClick={onClick}
+  //   /> 
+  //   </>
+  // );
 }
 
 export default DBStoreSalesByMonth

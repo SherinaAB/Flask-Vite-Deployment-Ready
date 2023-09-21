@@ -23,87 +23,87 @@ ChartJS.register(
 
 function DBStoreSales({visibleMonth}) {
 
-  const chartRef = useRef();
-  const [products, setProducts] = useState([]);
-  const [dataSet, setDataSet] = useState([]);
-  const [dataName, setDataName] = useState([]);
-  const [stores, setStores] = useState([]);
-  const [sales, setSales] = useState([]);
-  const [salesByMonth, setSalesByMonth] = useState([]);
+  // const chartRef = useRef();
+  // const [products, setProducts] = useState([]);
+  // const [dataSet, setDataSet] = useState([]);
+  // const [dataName, setDataName] = useState([]);
+  // const [stores, setStores] = useState([]);
+  // const [sales, setSales] = useState([]);
+  // const [salesByMonth, setSalesByMonth] = useState([]);
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Chart.js Bar Chart',
-      },
-    },
-  };
-  useEffect(() => {  
-    fetch('/api/stores')
-      .then((response) => response.json())
-      .then((data) => {
-        setStores(data)
-        setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-          const dataSet = [data];
-          let sum = 0;
-          dataSet.forEach(store => {
-            // console.log('forEach',store.sales)
-            store.forEach(singleSale => {
-              // console.log('forEach',singleSale)
-                singleSale.sales.forEach(sale =>
-                  // console.log('forEach',sale
-                  sum += singleSale.sale_amount)})
-          })
-            // console.log('forEach',store)   
-      })
-          // console.log('forEach',dataSet)
-          // console.log('forEach data',data);
-        // const sales = stores.map(store => store.sales)
-        // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
-        // const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
-        // setDataSet(Totals)
-      // .catch((error) => {
-      //   console.error('Error fetching store data:', error);
-      // });
+  // const options = {
+  //   responsive: true,
+  //   plugins: {
+  //     legend: {
+  //       position: 'top',
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: 'Chart.js Bar Chart',
+  //     },
+  //   },
+  // };
+  // useEffect(() => {  
+  //   fetch('/api/stores')
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setStores(data)
+  //       setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+  //         const dataSet = [data];
+  //         let sum = 0;
+  //         dataSet.forEach(store => {
+  //           // console.log('forEach',store.sales)
+  //           store.forEach(singleSale => {
+  //             // console.log('forEach',singleSale)
+  //               singleSale.sales.forEach(sale => {
+  //                 console.log('forEach',sale)
+  //                 sum += sale.sale_amount})})
+  //         })
+  //           // console.log('forEach',store)   
+  //     })
+  //         // console.log('forEach',dataSet)
+  //         // console.log('forEach data',data);
+  //       // const sales = stores.map(store => store.sales)
+  //       // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
+  //       // const Totals = salesByMonth.reduce((partialSum,a) => partialSum + a,0)
+  //       // setDataSet(Totals)
+  //     // .catch((error) => {
+  //     //   console.error('Error fetching store data:', error);
+  //     // });
 
-  }),[visibleMonth];
-  // console.log(dataSet)
-  const onClick = (event) => {
-    console.log(getDatasetAtEvent(chartRef.current, event));
-  }
+  // }),[visibleMonth];
+  // // console.log(dataSet)
+  // const onClick = (event) => {
+  //   console.log(getDatasetAtEvent(chartRef.current, event));
+  // }
 
-      useEffect(() => {
-        // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
-        setDataName(stores?.map((singleStore) => singleStore.name))
-      },[stores])
-      const labels = dataName
-      let data = {
-        labels,
-        datasets: [
-          {
-            label: 'Stores by Store Name',
-            data: dataSet,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },    
-        ],
-      };
+  //     useEffect(() => {
+  //       // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
+  //       setDataName(stores?.map((singleStore) => singleStore.name))
+  //     },[stores])
+  //     const labels = dataName
+  //     let data = {
+  //       labels,
+  //       datasets: [
+  //         {
+  //           label: 'Stores by Store Name',
+  //           data: dataSet,
+  //           backgroundColor: 'rgba(255, 99, 132, 0.5)',
+  //         },    
+  //       ],
+  //     };
 
-  return (
-    <>
+  // return (
+  //   <>
 
-    <Bar
-      ref={chartRef}
-      options={options}
-      data={data}
-      onClick={onClick}
-    /> 
-    </>
-  );
+  //   <Bar
+  //     ref={chartRef}
+  //     options={options}
+  //     data={data}
+  //     onClick={onClick}
+  //   /> 
+  //   </>
+  // );
 }
 
 export default DBStoreSales

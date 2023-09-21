@@ -17,7 +17,7 @@ import Comment from './components/Comment';
 import DBCatSales from './components/DBCatSales';
 import DBCategorySalesByMonth from './components/DBCategorySalesByMonth';
 import DBStoreSalesByMonth from './components/DBStoreSalesByMonth';
-import Quadrant from './components/ChartQuadrant';
+import Quadrant from './components/Quadrant';
 import Image from 'react-bootstrap/Image';
 
 function App() {
@@ -44,7 +44,13 @@ function App() {
   // )
   // // console.log(visibleMonth)
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+  const [currentForm, setCurrentForm] = useState('loginnew');
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  }
+
   function updateUser(new_user){
     setUser(new_user)
   }
@@ -73,6 +79,7 @@ function App() {
   if(!user){
     return (
     // <> SHERINA'S PHASE-5 PROJECT</>
+    
     <Router>
         <div className=''>
           <h1>PERFORMANCE DASHBOARDS </h1>
@@ -81,6 +88,11 @@ function App() {
       <div id="NavBar">
         <Navigation user={user} setUser={setUser}/>
       </div>
+      <div className='App'>
+        {
+          currentForm === 'login' ? <Login updateUser={updateUser} onFormSwitch={toggleForm}/> : <Signup updateUser={updateUser} onFormSwitch={toggleForm}/>
+        }
+      </div>
       <Switch>
           <Route exact path="/">
             <Home 
@@ -88,13 +100,13 @@ function App() {
             />
           </Route>
 
-          <Route exact path="/login">
+          {/* <Route exact path="/loginnew">
             <Login updateUser={updateUser}/>
           </Route>
 
           <Route exact path="/signup">
             <Signup updateUser={updateUser}/>
-          </Route>
+          </Route> */}
 
           <Route exact path="/comment">
             <Comment/>
@@ -141,7 +153,7 @@ function App() {
             <DashboardLanding />
           </Route>          
           
-          <Route exact path="/chartquadrant">
+          <Route exact path="/quadrant">
             <Quadrant />
           </Route>
 

@@ -30,12 +30,12 @@ function Navigation({user, setUser}) {
             <Nav.Link href="/">Home</Nav.Link>
 
             {!user ? <Nav.Link href="/signup">SignUp</Nav.Link> : null}
-            {user ? <Nav.Link href="/chartquadrant">View Dashboards</Nav.Link> : null}
-            {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/login">Login</Nav.Link>}
-            {/* <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
+            {user ? <Nav.Link href="/quadrant">View Dashboards</Nav.Link> : null}
+            {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/loginnew">Login</Nav.Link>}
+            <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
             <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
             <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link>
-            <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link> */}
+            <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown title="Communicate" id="basic-nav-dropdown">
               {/* <NavDropdown.Item href="/about">About</NavDropdown.Item> */}
