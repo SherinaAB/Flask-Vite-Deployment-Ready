@@ -44,11 +44,18 @@ function DashboardLanding({}) {
     },
   };
   
+  useEffect(() => {
     fetch('/api/stores')
       .then((response) => response.json())
-      .then((data) => {useEffect(() => {  
+      .then((data) => {
         setStores(data)
-        setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
+        // setDataSet(stores?.map(store => store.sales?.map(singleStore => singleStore?.sale_amount)
+      })
+  },[])
+
+  console.log(dataSet)
+          
+        // .map(singleSale => singleSale.sale
           // const dataSet = [data];
           // let sum = 0;
           // dataSet.forEach(store => {
@@ -60,8 +67,8 @@ function DashboardLanding({}) {
           //         sum += sale.sale_amount)})
           // })
           //   console.log('store sales',sum)   
-      })
-          console.log('forEach',dataSet)
+      // })
+          // console.log('forEach',dataSet)
           // console.log('forEach data',data);
         // const sales = stores.map(store => store.sales)
         // setSalesByMonth(sales.filter(sale => sale.timeframe === visibleMonth))
@@ -71,14 +78,14 @@ function DashboardLanding({}) {
       //   console.error('Error fetching store data:', error);
       // });
 
-  });
+  // });
   // console.log(dataSet)
   const onClick = (event) => {
     console.log(getDatasetAtEvent(chartRef.current, event));
   }
 
       useEffect(() => {
-        // setDataSet(stores?.map((singleStore) => singleStore.sales.sales_amount))
+        setDataSet(stores?.map(store => store.sales?.map(singleStore => singleStore?.sale_amount))),
         setDataName(stores?.map((singleStore) => singleStore.name))
       },[stores])
       const labels = dataName

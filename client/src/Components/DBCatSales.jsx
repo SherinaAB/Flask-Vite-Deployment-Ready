@@ -59,10 +59,8 @@ function DBCatSales() {
       .then((response) => response.json())
       .then((data) => {
         // console.log(data)
-        setSale(data)
-     // setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
-        
-        
+      setSale(data)
+      setDataSet(stores?.map(store => store.sales.map(singleSale => singleSale.sale_amount)))
         // const dataSet = [data];
         // let sum = 0;
         // dataSet.forEach(sale => {
@@ -85,9 +83,9 @@ function DBCatSales() {
       useEffect(() => {
         // setDataSet(categories?.map(singleSale => singleSale.categories))
         // setDataSet(categories?.map(categories => categories.sales.map(singleCategories => singleCategories.sale_amount)))
-        setDataName(categories?.map(singleCategories => singleCategories.name))
+        // setDataName(categories?.map(singleCategories => singleCategories.name))
         // setDataSet(sale?.map(category => category.sale_amount))
-        setDataSet(sale?.map(singleCategories=> singleCategories.sale_amount))
+        // setDataSet(sale?.map(singleCategories=> singleCategories.sale_amount))
         
         
         // ***********************  THE ABOVE IS NOT CONNECTIG TO THE CATEGORY_ID ONLY; ONLY CATEGORY_ID TO SALES_ID ***********************

@@ -20,7 +20,7 @@ import Image from 'react-bootstrap/Image';
 import About from './components/About';
 import Comment from './components/Comment';
 
-function App() {
+function App(props) {
   
   // const [month, setMonth] = useState([])
   

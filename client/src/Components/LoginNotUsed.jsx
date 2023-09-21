@@ -161,3 +161,277 @@
 
 // className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
 // className="flex w-full justify-center rounded-md bg-pink-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-600"
+
+
+
+// NOT USED FROM QUADRANT COMPONENT
+
+
+
+
+
+
+
+
+
+  // function fetchMonth() {
+  //   fetch('/api/timeframes')
+  //   .then(res=> {
+  //     if (res.ok){
+  //       res.json()
+  //       .then(data => {
+  //         // console.log(data)
+  //         setMonth(data)})
+  //     }
+  //   })
+  // }
+
+  // const [selectedMonth, setSelectedMonth] = useState("All")
+  // // console.log(selectedMonth)
+
+  // const visibleMonth = month.filter(
+  //   singleMonth => selectedMonth === "All" || singleMonth.timeframe === selectedMonth
+  // )
+  // console.log(visibleMonth)
+
+
+// useEffect(()=>{
+//   fetchMonth()
+
+// },[])
+
+// return (
+//   <>
+//   <div>
+  {/* <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
+    <div>
+      <button type="submit"> MonthFilter</button>
+    </div>   */}
+  {/*FIRST NAVBAR*/}
+
+  {/* <Navbar expand="lg" className="bg-body-tertiary">
+    <Container>
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav"> */}
+        {/* <Nav className="me-auto">   */}
+        {/* <Nav variant="tabs" defaultActiveKey="/dashboardlanding">
+        <MonthFilter month={month} selectedMonth={selectedMonth} onSelectedMonth={setSelectedMonth}/>
+          <Nav.Item>
+            <Nav.Link href="/dbstoresales">All Stores All Categories</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product % Sales by Category</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Store</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Market</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Month</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcatsales">Category Sales by Store</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcatsales">Category Sales by Market</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbstoresalesbymonth">Store Sales by Month</Nav.Link>
+          </Nav.Item>
+
+        </Nav>
+        </Navbar.Collapse>
+    </Container>
+  </Navbar> */}
+
+  {/* LAYOUT*/}
+
+  {/* <Container>
+    <Row className="justify-content-md-left">
+      <div>
+        <h1> ROW 1</h1>
+      </div>
+      <Col md="auto">
+        <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand href="/dashboardlanding">Select Chart to View</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              {/* <Nav className="me-auto">   */}
+              {/* <Nav variant="tabs" defaultActiveKey="/dashboardlanding">
+                <Nav.Item>
+                  <Nav.Link href="/dbstoresales">All Stores All Categories</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product % Sales by Category</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Store</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Market</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Month</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcatsales">Category Sales by Store</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcatsales">Category Sales by Market</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbstoresalesbymonth">Store Sales by Month</Nav.Link>
+                </Nav.Item>
+              </Nav>
+              </Navbar.Collapse>
+          </Container>
+        </Navbar>
+       
+      </Col>
+
+      <Col xs lg="2">
+      <div>
+        <h1> Column Right-Top</h1>
+      </div>
+      </Col>
+    </Row>
+
+
+    <Row className="justify-content-md-left">
+      <div>
+        <h1> ROW 1</h1>
+      </div>
+      <Col>
+      <div>
+        <h1> Column Left-Bottom</h1>
+      </div>
+      </Col>
+
+      <Col md="auto">
+      <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+            <Navbar.Brand href="/dashboardlanding">Select Chart to View</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav"> */}
+              {/* <Nav className="me-auto">   */}
+              {/* <Nav variant="tabs" defaultActiveKey="/dashboardlanding">
+                <Nav.Item>
+                  <Nav.Link href="/dbstoresales">All Stores All Categories</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product % Sales by Category</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Store</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Market</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbpricegap">Product Sales by Month</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcatsales">Category Sales by Store</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcatsales">Category Sales by Market</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/dbstoresalesbymonth">Store Sales by Month</Nav.Link>
+                </Nav.Item>
+              </Nav>
+              </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        
+      </Col>
+      <div>
+        <h1> ROW 2</h1>
+      </div>
+    </Row>
+  </Container> */}
+
+  {/*SECOND NAVBAR*/
+
+  {/* <Navbar expand="lg" className="bg-body-tertiary">
+    <Container>
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">  
+        <Nav variant="tabs" defaultActiveKey="/dashboardlanding">
+
+          <Nav.Item>
+            <Nav.Link href="/dbstoresales">All Stores All Categories</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product % Sales by Category</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Store</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Market</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbpricegap">Product Sales by Month</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcatsales">Category Sales by Store</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcatsales">Category Sales by Market</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href="/dbstoresalesbymonth">Store Sales by Month</Nav.Link>
+          </Nav.Item>
+
+        </Nav>
+        </Navbar.Collapse>
+    </Container>
