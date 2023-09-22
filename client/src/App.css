@@ -200,8 +200,7 @@ button {
   width: 100%;
   max-width:fit-content; /* Adjust container width as needed */
   box-sizing: border-box;
-  margin: 0 auto; /* Center the container */
-  top: 15rem;
+  /* margin: 0 auto; 
   padding: 0;   
   height: 100vh;
   flex: 1;
@@ -213,7 +212,19 @@ button {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  z-index: 20;
+  z-index: 20; */
+  margin: 0 auto;
+  font-size: 24px;
+  font-style: bold italic;
+  color:#3e2020;
+  justify-content: center;
+  text-align: center;
+  border: 12px solid #b7b0b0;
+  width: 100%;
+  margin-top: 325px;
+  margin-right: 150px;
+  margin-bottom: 1px;
+  margin-left: 150px;
 }
 
 .wrap {
@@ -231,30 +242,52 @@ button {
   padding: 5px 10px;
 }
 
-.headliner {
+.headliner, .Page {
   margin: 0 auto;
   font-size: 24px;
   font-style: bold italic;
   color:#3e2020;
+  justify-content: center;
+  text-align: center;
+  border: 12px solid #b7b0b0;
+  width: 100%;
+  margin-top: 325px;
+  margin-right: 150px;
+  margin-bottom: 1px;
+  margin-left: 150px;
 }
 
-.headliners {
+.Headliners {
   margin: 0 auto;
-  font-size: 20px;
+  font-size: bold 20px;
   font-style: italic;
-  color:#3e2020;
+  color:#860e0e;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.bullets {
+.Bullets {
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 28px;
   font-style: italic;
   color:#3e2020;
+  justify-content: center;
+  text-align: center;
+  padding: 0.25rem .25rem; 
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-.guts {
+.Guts {
   margin: 0 auto;
-  font-size: 12px;
-  font-style: italic;
-  color:#3e2020;
+  font-size: px;
+  justify-content: center;
+  text-align: justify;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 0.25rem .25rem; 
+  margin: 0 0rem;
+  flex-grow: 1;
+
 }

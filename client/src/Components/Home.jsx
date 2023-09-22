@@ -4,20 +4,21 @@ import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import * as styles from '/src/App.css';
 
 function Home({}) {
   const [createDashboard, setCreateDashboard] = useState(false)
   return(
     <>
-      <div className="HomePage">
+      <div className="Page">
         <Container>
           <Row className='row' xs={12} md={8}>
            <h1 className='Headliner'>Welcome to Your Data Dashboard: Unlocking Insights for Your Business!</h1>
-            <h2 className="Guts">
-            Hey there, business trailblazer! We're thrilled to introduce you to our Data Dashboard services, designed to supercharge your decision-making process. No need for a data science degree or decoding cryptic spreadsheets—our approach is all about simplicity and results. Let's dive in and discover how your business can ride the data wave to success.
+            <h2 className="Bullets">
+            Hey there, business trailblazer! We're thrilled to introduce you to our Data Dashboard services, designed to supercharge your decision-making process. No need for a data science degree or decoding cryptic spreadsheets—our approach is all about simplicity and results. Let's dive in and discover how your business can ride the data wave to success
             </h2>
           </Row>
-          <Row className='row'>
+          {/* <Row className='row'>
             <h2 className='Headliners'>Why Data Dashboard Services Matter:</h2>
               <h3 className="Bullets">Business Reviews: 
               </h3>
@@ -33,7 +34,7 @@ function Home({}) {
                   <p  className="Guts">Ever wondered why some products or services aren't flying off the shelves? Our dashboard can help you identify gaps in your offerings, making it easier to fine-tune your products or services to match customer demand.
                   </p>
             <h2 className='Headliners'>How Our Data-Driven Recommendations Work:</h2>
-              <h3 className="Bullets">implified Insights: 
+              <h3 className="Bullets"> Simplified Insights: 
               </h3>
                 <p className="Guts">We're all about keeping it simple. No complex algorithms or jargon-filled reports. Our Data Dashboard provides straightforward insights, making it easy for you to understand what's working and what needs attention.
                 </p>
@@ -92,7 +93,7 @@ function Home({}) {
               </h3>
                 <p className="Guts">With the insights gained from our Data Dashboard, you'll be well-equipped to adapt to market shifts and continuously improve your business.
                 </p>
-          </Col>
+          </Col> */}
           <Col>
             <h2 className='Headliners'>Start Your Data-Driven Journey Today:</h2>
                 <p className="Guts">
