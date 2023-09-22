@@ -79,18 +79,25 @@
   position: fixed;
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 24px;
-  color:#442612
+  color:#442612;
+  top: 2.25em;
 }
 
 .Greeting{
   font-size: 28px;
   font-family: italic, arial, helvetica;
-  background-color:#3f4961;
+  background-color:#3e2020;
   border-radius: 30px;
-  width: 25%;
+  width: 100%;
   text-align: right;
-  padding-top: 15px;
   color: ivory;
+  padding: 0.25rem 9999rem; 
+  margin: 0 -9870rem;
+  margin-bottom: 5rem;
+  position: fixed;
+  top: 0;
+  /* overflow-y: hidden; */
+  height: 4vh;
 }
 
 /* .TheWhat{
@@ -156,27 +163,28 @@
 label {
   text-align: left;
   padding: 0.25rem 0;
-  font-size: 25px;
+  font-size: 36px;
 } 
 
 input {
-  margin: 0.5rem 0;
-  padding: 1rem;
+  margin: 0rem 0;
+  padding: 0rem;
   border: none;
   border-radius: 80px;
 }
 
 button {
   border: none;
-  background-color: white;
+  background-color: rgb(184, 155, 47);
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
   color: #cdd22c;
+  font-size: 24px;
 }
 
 .link-btn {
-  background: none;
+  background: brown !important;
   color: white;
   border: none;
   /* text-decoration: underline; */

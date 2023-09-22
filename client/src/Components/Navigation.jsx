@@ -19,7 +19,6 @@ function Navigation({user, setUser}) {
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
-
       <Container>
         <Navbar.Brand className ="Greeting" href="/signup">{user && (<p> Welcome, {user.first_name}!</p>)}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

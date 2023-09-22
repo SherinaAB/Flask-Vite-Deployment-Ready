@@ -72,7 +72,7 @@ function Signup({updateUser, props}) {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" value ={password} onChange={(e)=>setPassword(e.target.value)}/>
           </Form.Group>
-          <Button type="submit">Register</Button>
+          <Button className="Button" type="submit">Register</Button>
         </Form>
         {/* <Button className="link-btn" onClick={() => props.onFormSwitch('loginnew')}>Don't have an account? Register here.</Button> */}
       </div>

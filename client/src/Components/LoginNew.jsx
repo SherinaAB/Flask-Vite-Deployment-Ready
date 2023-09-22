@@ -68,7 +68,7 @@ function Login({updateUser, props}) {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" value ={password} onChange={handlePassword}/>
           </Form.Group>
-          <Button type="submit">Log In</Button>
+          <Button className="Button" type="submit">Log In</Button>
         </Form>        
         {/* <Button className="link-btn" onClick={() => props.onFormSwitch('signup')}>
             Already have an account? Login here.
