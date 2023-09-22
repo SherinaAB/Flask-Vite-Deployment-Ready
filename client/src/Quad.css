@@ -1,0 +1,19 @@
+.Quadcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 960px; /* Adjust container width as needed */
+    margin: 0 auto;   /* Center the container */
+    height: 100vh;
+    flex: 1;
+  }
+  
+  .row {
+    display: flex;    /* Make the row a flex container */
+  }
+  
+  .col-sm-6 {
+    flex: 1;          /* Equal width columns */
+    padding: 10px;    /* Adjust padding as needed */
+    /* Other styles as needed */
+  }

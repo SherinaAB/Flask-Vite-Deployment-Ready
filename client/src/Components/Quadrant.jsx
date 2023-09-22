@@ -12,20 +12,21 @@ import DBPriceGap from './DBPriceGap';
 import DBStoreSales from './DBStoreSales';
 import DBCatSales from './DBCatSales';
 import DashboardLanding from './DashboardLanding';
+import * as styles from '/src/Quad.css';
 // import {HiOutlineMenuAlt4} from 'react-icons/hi'
 
 function Quadrant() {
   return (
-    <div className="Quad">
+    <div className="Quadcontainer">
       <Container>
-        <Row className="">
-          <Col>
+        <Row className="row">
+          <Col className="col-sm-6">
           <DBPriceGap/>
           </Col>
           <Col>2 of 2</Col>
         </Row>
-        <Row className="">
-          <Col>1 of 2</Col>
+        <Row>
+          <Col className="col-sm-6">1 of 2</Col>
           <Col>
           <DBStoreSales/>
           </Col>

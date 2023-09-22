@@ -19,6 +19,7 @@ function Navigation({user, setUser}) {
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
+
       <Container>
         <Navbar.Brand className ="Greeting" href="/signup">{user && (<p> Welcome, {user.first_name}!</p>)}</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,10 +30,10 @@ function Navigation({user, setUser}) {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
 
-            {!user ? <Nav.Link href="/signup">SignUp</Nav.Link> : null}
-            {user ? <Nav.Link href="/quadrant">View Dashboards</Nav.Link> : null}
+            {!user ? <Nav.Link href="/signup">Register</Nav.Link> : null}
+            {user ? <Nav.Link href="/quadrant">Dashboard</Nav.Link> : null}
             {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/loginnew">Login</Nav.Link>}
-            <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link>
+            {/* <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link> */}
             {/* <Nav.Link href="/dbpricegap">Price Gap</Nav.Link> */}
             {/* <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link> */}
             {/* <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link> */}

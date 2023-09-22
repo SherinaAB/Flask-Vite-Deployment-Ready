@@ -1,18 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900);
+
 #root {
-  max-width: 100%;
-  margin: 0, auto;
+  /* max-width: 100%;   */
+  max-height: 100%;
+  margin: 0;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
   display: flex;
+  flex: 1;
   position: fixed;
   top: 10;
   width:100%;
   height:100%;
   z-index: .05;
   background-image: url('/Users/sherinabuenaseda/Development/code/phase-5/Phase-5-Python-Flask-React-Chart-Dashboard/client/src/assets/PaperStyle.jpg');
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: 50% 40%;
   /* mix-blend-mode:multiply; */
 }
 
@@ -48,68 +53,106 @@
   vertical-align:middle;
   position: relative;
 } */
-
-.NavBar {
-  text-align: left;
-  position: fixed;
-  top: 0;
+/* ========== NAVBAR =========== */
+.bg-body-tertiary {
+  background-color:#42435b;
+  color: ivory;
+  text-align: center;
+  height: 10%;
+  /* position: fixed; */
+  top: 10rem;
   left: 0;
-  right: 0;
-  padding: 10px; 
-   /* position: fixed; */
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0.25;
+  font-size: 30px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.25rem 9999rem; 
+    position: fixed;
+  top: 20;
+  width: 25rem;
+  margin: 0 -9999rem;
+  overflow-y: hidden;
+  /* box-sizing: border-box; */
+  /* height: 100%; */
+  z-index: 10;
 } 
 
+.PageName{
+  position: fixed;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 24px;
+  color:#442612
+}
+
+.Greeting{
+  font-size: 28px;
+  font-family: italic, arial, helvetica;
+  background-color:#3f4961;
+  border-radius: 30px;
+  width: 25%;
+  text-align: right;
+  padding-top: 15px;
+  color: ivory;
+}
+
+/* .TheWhat{
+
+} */
 /* ================ LOGIN FORM CSS ================== */
-.Form {
+/* .Form {
   text-align:center;
   display:flex;
-  min-height: 100vh;  
+  min-height: 50vh;  
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 100px;
-  height: 90vh;
+  padding: 10px;
+  height: 70vh;
   color: black;
 
   background-image: linear-gradient(79deg,#0c8cfd, #4f7aa8 40%, #414591);  
-  /* background-image: linear-gradient(79deg,#7439db, #c66fbc 48%, #F7944D);  */
-}
+  background-image: linear-gradient(79deg,#7439db, #c66fbc 48%, #F7944D);
+} */
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .auth-form-container{
   padding: 5rem;
   border: 1px solid white;
   border-radius: 10px;  
   margin: 0.5rem;
   }
-}
+} */
 
 /* ================ **** EXECUTED ***** LOGIN FORM CSS ================== */
 .auth-form-container, .login-form, .signup-form {
-  display: flex;
+  display:flex;
   flex-direction: column;
+  text-align: center;  
+  color: ivory;
+  vertical-align:text-top;
+  position: fixed;
+  min-height: 0vh;  
+  align-items:center;
+  justify-content: center;
   text-align: center;
-  vertical-align: middle;
-  position: sticky;
-
-  /* text-align:center; */
-  /* display:flex; */
-  /* min-height: 100vh;   */
-  /* align-items: center; */
-  /* justify-content: center; */
-  flex-direction: column;
   padding: 70px;
-  height: 85vh;
-  color: black;
-
-  background-image: linear-gradient(79deg,#2c2f32, #6294c8 40%, #3d3f64); 
-  /* z-index: 0.25; */
+  padding-top: 80px;
+  padding-left: 15px;
+  height: 65vh;
+  width: 720px;
+  margin: 0 auto;
+  border: 12px solid #b7b0b0;
+  margin-top: 255px;
+  margin-right: 350px;
+  margin-bottom: 2px;
+  margin-left: 700px;
+  background-image: linear-gradient(79deg,#583636, #946866 40%, #9e9486); 
+  z-index: 20;
 }
-
+.formbox{
+  font-size: 48px;
+  vertical-align:center;
+  margin-top: -650px;
+  text-align: center;
+}
 label {
   text-align: left;
   padding: 0.25rem 0;
@@ -120,7 +163,7 @@ input {
   margin: 0.5rem 0;
   padding: 1rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 80px;
 }
 
 button {

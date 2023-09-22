@@ -39,7 +39,7 @@ function DBPriceGap() {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Price Gap Analysis Chart',
       },
     },
   };

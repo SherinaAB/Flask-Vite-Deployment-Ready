@@ -3,8 +3,8 @@ import { useState,useEffect } from 'react'
   /* The following line can be included in your src/index.js or App.js file */
 }
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import './App.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import * as styles from './App.css';
 import Navigation from './components/Navigation';
 import MonthFilter from './components/MonthFilter';
 import Home from './components/Home';
@@ -84,6 +84,7 @@ function App(props) {
       <div className='PageName'>
         <h1>PERFORMANCE DASHBOARDS </h1>
         <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
+
       </div>
         <div id="NavBar">
           <Navigation user={user} setUser={setUser}/>
@@ -125,9 +126,9 @@ function App(props) {
     <Router>
       <div id="container">
         {/* <img src="/src/assets/PaperStyle.jpg" alt="picture of white paper waves"/> */}
-        <div className=''>
+        <div className='PageName'>
           <h1>PERFORMANCE DASHBOARDS </h1>
-          <p>courtesy of: Devs by Sherina Lynn Buenaseda</p>
+          {/* <p className='courtesy'>courtesy of: Devs by Sherina Lynn Buenaseda</p> */}
         </div>
         <header className='navbar'>
         <Navigation user={user} setUser={setUser}/>

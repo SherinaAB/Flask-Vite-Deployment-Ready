@@ -43,7 +43,7 @@ function Signup({updateUser, props}) {
   return (
     <>
       <div className="auth-form-container">
-          <h2>Register</h2>
+          <h2 className="formbox">Register</h2>
         <Form className="signup-form" onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicFirst_Name">
             <Form.Label>First Name</Form.Label>
@@ -74,7 +74,7 @@ function Signup({updateUser, props}) {
           </Form.Group>
           <Button type="submit">Register</Button>
         </Form>
-        <Button className="link-btn" onClick={() => props.onFormSwitch('loginnew')}>Don't have an account? Register here.</Button>
+        {/* <Button className="link-btn" onClick={() => props.onFormSwitch('loginnew')}>Don't have an account? Register here.</Button> */}
       </div>
     </>
   )

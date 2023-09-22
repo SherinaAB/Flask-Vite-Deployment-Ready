@@ -39,7 +39,7 @@ function DBStoreSales({}) {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Sales by Store',
       },
     },
   };
@@ -70,7 +70,7 @@ function DBStoreSales({}) {
           {
             label: 'Stores by Store Name',
             data: dataSet,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            // backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },    
         ],
       };
