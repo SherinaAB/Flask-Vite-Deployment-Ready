@@ -12,7 +12,7 @@
   top: 10;
   width:100%;
   height:100%;
-  z-index: .05;
+  z-index: 10;
   background-image: url('/Users/sherinabuenaseda/Development/code/phase-5/Phase-5-Python-Flask-React-Chart-Dashboard/client/src/assets/PaperStyle.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
@@ -60,8 +60,8 @@
   text-align: center;
   height: 10%;
   /* position: fixed; */
-  top: 10rem;
-  left: 0;
+  top: 12rem;
+  left: .5em;
   font-size: 30px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   padding: 0.25rem 9999rem; 
@@ -187,43 +187,74 @@ button {
   background: brown !important;
   color: white;
   border: none;
-  /* text-decoration: underline; */
+}
+/* =================== QUADRANT CSS ===================== */
+.Quadcontainer {
+  /* display: flex;
+  flex-direction: row;
+  position:relative;
+  justify-content: space-between;
+  align-content:center ;
+  gap: 5px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width:fit-content; /* Adjust container width as needed */
+  box-sizing: border-box;
+  margin: 0 auto; /* Center the container */
+  top: 15rem;
+  padding: 0;   
+  height: 100vh;
+  flex: 1;
+  flex-grow:4;
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  z-index: 20;
 }
 
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: flex-end;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text {
+  margin: auto;
+  font-size: 2em;
+  font-style: italic;
+  color:#3e2020;
+  border-radius: 10px solid #946866;
+  padding: 5px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.headliner {
+  margin: 0 auto;
+  font-size: 24px;
+  font-style: bold italic;
+  color:#3e2020;
 }
 
-.card {
-  padding: 2em;
+.headliners {
+  margin: 0 auto;
+  font-size: 20px;
+  font-style: italic;
+  color:#3e2020;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.bullets {
+  margin: 0 auto;
+  font-size: 18px;
+  font-style: italic;
+  color:#3e2020;
+}
 
+.guts {
+  margin: 0 auto;
+  font-size: 12px;
+  font-style: italic;
+  color:#3e2020;
+}

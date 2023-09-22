@@ -1,11 +1,26 @@
 .Quadcontainer {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: row;
+    position:relative;
+    justify-content: space-between;
+    align-content:center ;
+    gap: 5px;
+    flex-wrap: wrap;
     width: 100%;
-    max-width: 960px; /* Adjust container width as needed */
+    max-width:fit-content; /* Adjust container width as needed */
     margin: 0 auto;   /* Center the container */
     height: 100vh;
     flex: 1;
+    
+    flex-grow:4;
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 20;
+
   }
   
   .row {
