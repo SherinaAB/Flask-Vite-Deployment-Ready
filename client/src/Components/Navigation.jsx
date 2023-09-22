@@ -30,20 +30,20 @@ function Navigation({user, setUser}) {
             <Nav.Link href="/">Home</Nav.Link>
 
             {!user ? <Nav.Link href="/signup">Register</Nav.Link> : null}
-            {user ? <Nav.Link href="/quadrant">Dashboard</Nav.Link> : null}
+            {user ? <Nav.Link href="/quadrant/">Dashboard</Nav.Link> : null}
             {user ? <Nav.Link onClick={handleLogout}>Logout</Nav.Link> : <Nav.Link href="/loginnew">Login</Nav.Link>}
             {/* <Nav.Link href="/dashboardlanding">Dashboard Views</Nav.Link> */}
-            {/* <Nav.Link href="/dbpricegap">Price Gap</Nav.Link> */}
-            {/* <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link> */}
+            {/* <Nav.Link href="/dbpricegap">Price Gap</Nav.Link>
+            <Nav.Link href="/dbcatsales">Sales by Category</Nav.Link> */}
             {/* <Nav.Link href="/dbcategorysalesbymonth">Category Sales by Month</Nav.Link> */}
             <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown title="Communicate" id="basic-nav-dropdown">
-              {/* <NavDropdown.Item href="/about">About</NavDropdown.Item> */}
+              <NavDropdown.Item href="/about">About</NavDropdown.Item>
               <NavDropdown.Item href="/comment">
                 Review</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Suggestions</NavDropdown.Item>
+              {/* <NavDropdown.Item href="/dbpricegap">Price Gap Analysis Chart</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Live Chat Link</NavDropdown.Item>
+              <NavDropdown.Item href="/dbcatsales">Sales by Store</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

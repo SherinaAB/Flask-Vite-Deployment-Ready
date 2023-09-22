@@ -22,10 +22,11 @@ function About() {
     height: '15vh',
     padding: '50px',
     textAlign: 'center',
+    height: '15vh',
   }
 
   return (
-    <div>
+    <div className="Bullet">
       <h1>About Us</h1> 
 
       <h1 style={centerStyles}>CREATE ANDANALYZE YOUR DYNAMIC DATA PERFORMANCE DASHBOARDS FOR YOUR BUSINESS</h1>
