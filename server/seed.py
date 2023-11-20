@@ -83,6 +83,7 @@ def create_categories():
             )
         )
     return categories
+    
 
 def create_products():
     products = []
